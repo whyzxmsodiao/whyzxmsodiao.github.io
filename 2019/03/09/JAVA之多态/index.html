@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 城南花开</title>
+  <title>JAVA之多态 | 城南花开</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="城南花开">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="在了解多态之前，先来巩固下继承。  继承的使用要点：1，父类也称作超类，基类，派生类等。2，Java中只有单继承，没有像C++那样的多继承。多继承会引起混乱，使得继承链过于复杂，系统难于维护。3，Java中没有多继承，接口有多继承。4，子类继承父类，可以得到父类全部的属性和方法（除了父类的构造方法），但不见得可以直接访问（比如父类的私有属性和方法）。5，如果定义一个类时，没有调用extends，则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA之多态">
+<meta property="og:url" content="http://yoursite.com/2019/03/09/JAVA之多态/index.html">
 <meta property="og:site_name" content="城南花开">
+<meta property="og:description" content="在了解多态之前，先来巩固下继承。  继承的使用要点：1，父类也称作超类，基类，派生类等。2，Java中只有单继承，没有像C++那样的多继承。多继承会引起混乱，使得继承链过于复杂，系统难于维护。3，Java中没有多继承，接口有多继承。4，子类继承父类，可以得到父类全部的属性和方法（除了父类的构造方法），但不见得可以直接访问（比如父类的私有属性和方法）。5，如果定义一个类时，没有调用extends，则">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-09T02:22:55.651Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="城南花开">
+<meta name="twitter:title" content="JAVA之多态">
+<meta name="twitter:description" content="在了解多态之前，先来巩固下继承。  继承的使用要点：1，父类也称作超类，基类，派生类等。2，Java中只有单继承，没有像C++那样的多继承。多继承会引起混乱，使得继承链过于复杂，系统难于维护。3，Java中没有多继承，接口有多继承。4，子类继承父类，可以得到父类全部的属性和方法（除了父类的构造方法），但不见得可以直接访问（比如父类的私有属性和方法）。5，如果定义一个类时，没有调用extends，则">
   
     <link rel="alternative" href="/atom.xml" title="城南花开" type="application/atom+xml">
   
@@ -150,168 +154,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-JAVA之多态" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      JAVA之多态
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/09/JAVA之多态/" class="archive-article-date">
+
+        
+        <a href="/2019/03/09/JAVA之多态/" class="archive-article-date">
   	<time datetime="2019-03-09T00:58:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-09</time>
 </a>
-        </div>
-    	 
+        
+      </header>
+    
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/09/JAVA之多态/">JAVA之多态</a>
-    </h1>
-  
+<!-- 目录内容 -->
 
-        <div class="article-info info-on-right">
-          
-          
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在了解多态之前，先来巩固下继承。</p>
+<ul>
+<li>继承的使用要点：<br>1，父类也称作超类，基类，派生类等。<br>2，Java中只有单继承，没有像C++那样的多继承。多继承会引起混乱，使得继承链过于复杂，系统难于维护。<br>3，Java中没有多继承，接口有多继承。<br>4，子类继承父类，可以得到父类全部的属性和方法（除了父类的构造方法），但不见得可以直接访问（比如父类的私有属性和方法）。<br>5，如果定义一个类时，没有调用extends，则它的父类是：java.lang.Object。<a id="more"></a></li>
+<li>继承树追溯：<br>属性/方法查找顺序：（比如：查找变量h）<br>1，查找当前类中有没有属性h，<br>2，依次上溯每个父类，查看每个父类中是否有h，直到Object。<br>3，如果没找到，则出现编译错误。<br>4，上面步骤，只要找到h变量，这个过程终止。</li>
+<li><p>构造方法的调用顺序：<br>构造方法的第一句总是：super(…)来调用父类的构造方法！！！所以，流程就是：先向上追溯到Object，然后再依次向下执行类的初始化块和构造方法。直到当前子类为止。<br>注：静态初始化块调用顺序，与构造方法调用顺序一样，不再重复。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class TestSuper &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO 自动生成的方法存根</span><br><span class="line">		System.out.println(<span class="string">"创建一个ChildClass对象"</span>);</span><br><span class="line">        new ChildClass();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class FatherClass&#123;</span><br><span class="line">	public <span class="function"><span class="title">FatherClass</span></span>() &#123;</span><br><span class="line">		System.out.println(<span class="string">"创建FatherClass"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class ChildClass extends FatherClass&#123;</span><br><span class="line">	public <span class="function"><span class="title">ChildClass</span></span>() &#123;</span><br><span class="line">		//super();默认存在</span><br><span class="line">		System.out.println(<span class="string">"创建ChildClass"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">Output:</span><br><span class="line">创建一个ChildClass对象</span><br><span class="line">创建FatherClass</span><br><span class="line">创建ChildClass</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>现在来看看多态吧<br>1，多态指的是同一个方法调用，由于对象不同可能会有不同的行为。现实生活中，同一个方法，具体实现会完全不同。<br>2，多态的重点：<br>(1),多态是方法的多态，不是属性的多态（多态与属性无关）。<br>(2),多态的存在要有3个必要条件：继承，方法重写，父类引用指向子类对象。<br>(3),父类引用指向子类对象后，用该父类引用调用子类重写的方法，此时多态就出现了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">  public class TestPolym &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO 自动生成的方法存根</span><br><span class="line">		Animal a=new Animal();</span><br><span class="line">		animalCry(a);</span><br><span class="line">		//Dog d=new Dog();</span><br><span class="line">		Animal d=new Dog();//父类应用指向子类对象，发生了多态</span><br><span class="line">		animalCry(d);</span><br><span class="line">		Animal e=new Cat();</span><br><span class="line">		animalCry(e);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	static void animalCry(Animal a) &#123;</span><br><span class="line">		a.shout();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">class Animal&#123;</span><br><span class="line">	public void <span class="function"><span class="title">shout</span></span>() &#123;</span><br><span class="line">		System.out.println(<span class="string">"叫了一声！"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Dog extends Animal&#123;</span><br><span class="line">	public void <span class="function"><span class="title">shout</span></span>() &#123;  //对于父类shout()方法重写</span><br><span class="line">		System.out.println(<span class="string">"汪汪汪！"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Cat extends Animal&#123;</span><br><span class="line">	public void <span class="function"><span class="title">shout</span></span>() &#123;</span><br><span class="line">		System.out.println(<span class="string">"喵喵喵！"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">Output:</span><br><span class="line">叫了一声！</span><br><span class="line">汪汪汪！</span><br><span class="line">喵喵喵！</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编程中封装的具体优点：<br>1，提高代码的安全性。<br>2，提高代码的复用性。<br>3，“高内聚”：封装细节，便于修改内部代码，提高可维护性。<br>4，“低耦合”：简化外部调用，便于调用者使用，便于扩展和协作。</p>
+</li>
+</ul>
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/09/JAVA之多态/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/06/JAVA之构造器/" class="archive-article-date">
-  	<time datetime="2019-03-06T08:03:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/06/JAVA之构造器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA之构造器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/06/JAVA之构造器/">JAVA之构造器</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA之多态" data-title="JAVA之多态" data-url="http://yoursite.com/2019/03/09/JAVA之多态/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/05/密码学概述/" class="archive-article-date">
-  	<time datetime="2019-03-05T09:44:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/05/密码学概述/">密码学概述</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/03/post城南花开/" class="archive-article-date">
-  	<time datetime="2019-03-03T06:26:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/03/post城南花开/">梦醒时分</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/03/hello-world/" class="archive-article-date">
-  	<time datetime="2019-03-03T06:08:28.565Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/03/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -334,8 +362,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
