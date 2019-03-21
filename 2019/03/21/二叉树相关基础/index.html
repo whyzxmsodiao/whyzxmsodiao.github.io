@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
+  
+  
+  
+  
+  <title>二叉树相关基础 | TimeSilence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="二叉树链式存储的简单实现首先是建立结点：">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树相关基础">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/二叉树相关基础/index.html">
+<meta property="og:site_name" content="TimeSilence">
+<meta property="og:description" content="二叉树链式存储的简单实现首先是建立结点：">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-21T13:18:02.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="二叉树相关基础">
+<meta name="twitter:description" content="二叉树链式存储的简单实现首先是建立结点：">
+  
+    <link rel="alternative" href="/atom.xml" title="TimeSilence" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/002.jpg">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/001.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">TimeSilence</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/categories/algorithm">算法学习</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/whyzxmsodiao" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="/xxxxxxxx" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/作品/" style="font-size: 10px;">作品</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="/www.baidu.com">百度一下</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">菜鸟一匹</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">TimeSilence</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/001.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">TimeSilence</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/categories/algorithm">算法学习</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/whyzxmsodiao" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="/xxxxxxxx" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-二叉树相关基础" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/21/二叉树相关基础/" class="article-date">
+      <time datetime="2019-03-21T13:02:05.000Z" itemprop="datePublished">2019-03-21</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      二叉树相关基础
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>二叉树链式存储的简单实现<br>首先是建立结点：<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Node &#123;</span><br><span class="line">	Object value;   //结点值</span><br><span class="line">	Node leftChild;  //左子树的引用</span><br><span class="line">	Node rightChild; //右子树的引用</span><br><span class="line">	public Node(Object value, Node leftChild, Node rightChild) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.value = value;</span><br><span class="line">		this.leftChild = leftChild;</span><br><span class="line">		this.rightChild = rightChild;</span><br><span class="line">	&#125;</span><br><span class="line">	public Node(Object value) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.value = value;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public String <span class="function"><span class="title">toString</span></span>() &#123;  //重写toString方法</span><br><span class="line">		<span class="built_in">return</span> <span class="string">"Node [value="</span> + value + <span class="string">", leftChild="</span> + leftChild + <span class="string">", rightChild="</span> + rightChild + <span class="string">"]"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>建立接口BinaryTree并创建LinkedBinaryTree类将其实现（此处省略了接口代码）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import java.util.Deque;</span><br><span class="line">import java.util.LinkedList;</span><br><span class="line">import java.util.Queue;</span><br><span class="line"></span><br><span class="line">public class LinkedBinaryTree implements BinaryTree &#123;</span><br><span class="line">	private Node root;</span><br><span class="line">	public LinkedBinaryTree(Node root) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.root = root;</span><br><span class="line">	&#125;</span><br><span class="line">	public <span class="function"><span class="title">LinkedBinaryTree</span></span>() &#123;</span><br><span class="line">		super();</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public boolean <span class="function"><span class="title">isEmpty</span></span>() &#123;</span><br><span class="line">		<span class="built_in">return</span> root==null;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public int <span class="function"><span class="title">size</span></span>() &#123;</span><br><span class="line">		System.out.println(<span class="string">"树的结点个数是："</span>);</span><br><span class="line">		System.out.println(this.size(root));</span><br><span class="line">		<span class="built_in">return</span> 0;</span><br><span class="line">	&#125;</span><br><span class="line">	public int size(Node node) &#123;</span><br><span class="line">		<span class="keyword">if</span>(node==null) &#123;</span><br><span class="line">			<span class="built_in">return</span> 0;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			//求左子树结点个数</span><br><span class="line">			int cl=size(node.leftChild);</span><br><span class="line">			//求右子树节点个数</span><br><span class="line">			int cr=size(node.rightChild);</span><br><span class="line">			//返回左子树节点个数加右子树结点个数加一</span><br><span class="line">			<span class="built_in">return</span> cl+cr+1;</span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">	&#125;	</span><br><span class="line">//求出树的高度，用递归</span><br><span class="line">	@Override</span><br><span class="line">	public void <span class="function"><span class="title">getHeight</span></span>() &#123;</span><br><span class="line">		System.out.println(<span class="string">"树的高度为："</span>);</span><br><span class="line">		System.out.println(this.getHeight(root));</span><br><span class="line">		 <span class="built_in">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getHeight(Node root) &#123;</span><br><span class="line">		<span class="keyword">if</span>(root==null) &#123;</span><br><span class="line">			<span class="built_in">return</span> 0;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			//获得左子树高度</span><br><span class="line">			int cl=getHeight(root.leftChild);</span><br><span class="line">			//获得右子树高度</span><br><span class="line">			int cr=getHeight(root.rightChild);</span><br><span class="line">			//返回其中较大的并加一</span><br><span class="line">			<span class="built_in">return</span> cl&gt;cr?cl+1:cr+1;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public Node findKey(int value) &#123;</span><br><span class="line">		<span class="built_in">return</span> this.findKey(value, root);</span><br><span class="line">	&#125;</span><br><span class="line">	public Node findKey(Object value,Node root) &#123;</span><br><span class="line">		<span class="keyword">if</span>(root==null) &#123;</span><br><span class="line">			<span class="built_in">return</span> null;</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(root!=null &amp;&amp; root.value==value) &#123;</span><br><span class="line">			<span class="built_in">return</span> root;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			Node node1=this.findKey(value, root.leftChild);</span><br><span class="line">			Node node2=this.findKey(value, root.rightChild);</span><br><span class="line">			<span class="keyword">if</span>(node1!=null&amp;&amp;node1.value==value) &#123;</span><br><span class="line">				<span class="built_in">return</span> node1;</span><br><span class="line">				</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(node2!=null&amp;&amp;node2.value==value) &#123;</span><br><span class="line">				<span class="built_in">return</span> node2;</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="built_in">return</span> null;</span><br><span class="line">			&#125;</span><br><span class="line">					</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void <span class="function"><span class="title">proOrderTraverse</span></span>() &#123;</span><br><span class="line">		 </span><br><span class="line">		<span class="keyword">if</span>(root!=null) &#123;</span><br><span class="line">			// 输出根结点的值</span><br><span class="line">			System.out.print(root.value+<span class="string">" "</span>);</span><br><span class="line">			//对左子树进行先序遍历</span><br><span class="line">			BinaryTree leftTree=new LinkedBinaryTree(root.leftChild);</span><br><span class="line">			leftTree.proOrderTraverse();</span><br><span class="line">			//对右子树进行先序遍历</span><br><span class="line">			BinaryTree rightTree=new LinkedBinaryTree(root.rightChild);</span><br><span class="line">			rightTree.proOrderTraverse();</span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void <span class="function"><span class="title">inOrdeTraverse</span></span>() &#123;</span><br><span class="line">		System.out.println(<span class="string">"中序遍历："</span>);</span><br><span class="line">		this.inOrdeTraverse(root);</span><br><span class="line">		System.out.println();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	private void inOrdeTraverse(Node root) &#123;</span><br><span class="line">		<span class="keyword">if</span>(root!=null) &#123;</span><br><span class="line">			//遍历左子树</span><br><span class="line">			inOrdeTraverse(root.leftChild);</span><br><span class="line">			//输出根的值</span><br><span class="line">			System.out.print(root.value+<span class="string">" "</span>);</span><br><span class="line">			//遍历右子树</span><br><span class="line">			inOrdeTraverse(root.rightChild);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void <span class="function"><span class="title">postOrderTraverse</span></span>() &#123;</span><br><span class="line">		System.out.println(<span class="string">"后序遍历："</span>);</span><br><span class="line">		this.postOrderTraverse(root);</span><br><span class="line">		System.out.println();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	private void postOrderTraverse(Node root) &#123;</span><br><span class="line">		<span class="keyword">if</span>(root!=null) &#123;</span><br><span class="line">			//遍历左子树</span><br><span class="line">			this.postOrderTraverse(root.leftChild);</span><br><span class="line">			</span><br><span class="line">			//遍历右子树</span><br><span class="line">			this.postOrderTraverse(root.rightChild);</span><br><span class="line">			//输出根的值</span><br><span class="line">			System.out.print(root.value+<span class="string">" "</span>);</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">//非递归中序遍历</span><br><span class="line">	@Override</span><br><span class="line">	public void <span class="function"><span class="title">inOrderByStack</span></span>() &#123;</span><br><span class="line">		//创建栈</span><br><span class="line">	    Deque&lt;Node&gt; stack=new LinkedList&lt;Node&gt;();</span><br><span class="line">	    Node current=root;</span><br><span class="line">	    <span class="keyword">while</span>(current!=null||!stack.isEmpty()) &#123;</span><br><span class="line">	    	<span class="keyword">while</span>(current!=null) &#123;</span><br><span class="line">	    		stack.push(current);</span><br><span class="line">	    		current=current.leftChild;</span><br><span class="line">	    	&#125;</span><br><span class="line">	    	<span class="keyword">if</span>(!stack.isEmpty()) &#123;</span><br><span class="line">	    		current=stack.pop();</span><br><span class="line">	    		System.out.print(current.value+<span class="string">" "</span>);</span><br><span class="line">	    		current=current.rightChild;</span><br><span class="line">	    	&#125;</span><br><span class="line">	    &#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">//层次遍历，借助队列</span><br><span class="line">	@Override</span><br><span class="line">	public void <span class="function"><span class="title">levelOrderByStack</span></span>() &#123;</span><br><span class="line">		<span class="keyword">if</span>(root==null) &#123;  //树为空</span><br><span class="line">			<span class="built_in">return</span> ;</span><br><span class="line">		&#125;</span><br><span class="line">		Queue&lt;Node&gt; queue=new LinkedList&lt;Node&gt;();//新建一个队列</span><br><span class="line">		queue.add(root);</span><br><span class="line">		<span class="keyword">while</span>(queue.size()!=0) &#123;</span><br><span class="line">			int len=queue.size();</span><br><span class="line">			<span class="keyword">for</span>(int i=0;i&lt;len;i++) &#123;</span><br><span class="line">				Node temp=queue.poll();//出队 </span><br><span class="line">				System.out.print(temp.value+<span class="string">" "</span>);</span><br><span class="line">				<span class="keyword">if</span>(temp.leftChild!=null) &#123;</span><br><span class="line">					queue.add(temp.leftChild);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span>(temp.rightChild!=null) &#123;</span><br><span class="line">					queue.add(temp.rightChild);</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/03/21/二叉树相关基础/">二叉树相关基础</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 TimeSilence 的个人博客">TimeSilence</a></p>
+        <p><span>发布时间:</span>2019年03月21日 - 21时02分</p>
+        <p><span>最后更新:</span>2019年03月21日 - 21时18分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/21/二叉树相关基础/" title="二叉树相关基础">http://yoursite.com/2019/03/21/二叉树相关基础/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/21/二叉树相关基础/　　作者: TimeSilence" title></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/15/JAVA之List/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">时间复杂度计算</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/03/15/JAVA之List/" title="下一篇: 时间复杂度计算">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/二叉树相关基础/">二叉树相关基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/JAVA之List/">时间复杂度计算</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/琳/">琳</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/JAVA之多态/">JAVA之多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/JAVA之构造器/">JAVA之构造器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/05/密码学概述/">密码学概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/post城南花开/">梦醒时分</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/hello-world/">Hello World</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 TimeSilence
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit">极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 2;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
