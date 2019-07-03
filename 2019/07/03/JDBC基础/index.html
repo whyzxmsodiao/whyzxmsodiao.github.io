@@ -7,20 +7,20 @@
   
   
   
-  <title>时间复杂度计算 | TimeSilence</title>
+  <title>JDBC基础 | TimeSilence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="时间复杂度的计算根本没必要计算时间频度，即使计算机处理还要忽略常量，低次幂和最高次幂的系数，所以有了如下方法：1.找出算法中的基本语句：算法中执行次数最多的那条语句为基本语句，通常是最内层循环的循环体。2.计算基本语句执行次数的数量级：只需计算基本语句执行次数的数量级，这就意味着只要保证基本语句执行次数的函数中的最高次幂正确即可，可以忽略所有低次幂和最高次幂系数，这样能够简化算法分析，并且注意力">
-<meta name="keywords" content="算法">
+  <meta name="description" content="JDBC(Java Database Connection)为java开发者使用数据库提供了统一的编程接口，它由一组java类和接口组成。是java程序与数据库系统通信的标准API。JDBC API使得开发人员可以使用纯java的方式来连接数据库，并执行操作。 sun公司由于不知道各个主流商用数据库的程序代码，因此无法自己写代码连接各个数据库，因此sun公司决定自己提供一套API，凡是数据库想与j">
+<meta name="keywords" content="jdbc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="时间复杂度计算">
-<meta property="og:url" content="http://yoursite.com/2019/03/15/JAVA之List/index.html">
+<meta property="og:title" content="JDBC基础">
+<meta property="og:url" content="http://yoursite.com/2019/07/03/JDBC基础/index.html">
 <meta property="og:site_name" content="TimeSilence">
-<meta property="og:description" content="时间复杂度的计算根本没必要计算时间频度，即使计算机处理还要忽略常量，低次幂和最高次幂的系数，所以有了如下方法：1.找出算法中的基本语句：算法中执行次数最多的那条语句为基本语句，通常是最内层循环的循环体。2.计算基本语句执行次数的数量级：只需计算基本语句执行次数的数量级，这就意味着只要保证基本语句执行次数的函数中的最高次幂正确即可，可以忽略所有低次幂和最高次幂系数，这样能够简化算法分析，并且注意力">
+<meta property="og:description" content="JDBC(Java Database Connection)为java开发者使用数据库提供了统一的编程接口，它由一组java类和接口组成。是java程序与数据库系统通信的标准API。JDBC API使得开发人员可以使用纯java的方式来连接数据库，并执行操作。 sun公司由于不知道各个主流商用数据库的程序代码，因此无法自己写代码连接各个数据库，因此sun公司决定自己提供一套API，凡是数据库想与j">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-18T01:48:34.970Z">
+<meta property="og:updated_time" content="2019-07-03T10:14:16.062Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="时间复杂度计算">
-<meta name="twitter:description" content="时间复杂度的计算根本没必要计算时间频度，即使计算机处理还要忽略常量，低次幂和最高次幂的系数，所以有了如下方法：1.找出算法中的基本语句：算法中执行次数最多的那条语句为基本语句，通常是最内层循环的循环体。2.计算基本语句执行次数的数量级：只需计算基本语句执行次数的数量级，这就意味着只要保证基本语句执行次数的函数中的最高次幂正确即可，可以忽略所有低次幂和最高次幂系数，这样能够简化算法分析，并且注意力">
+<meta name="twitter:title" content="JDBC基础">
+<meta name="twitter:description" content="JDBC(Java Database Connection)为java开发者使用数据库提供了统一的编程接口，它由一组java类和接口组成。是java程序与数据库系统通信的标准API。JDBC API使得开发人员可以使用纯java的方式来连接数据库，并执行操作。 sun公司由于不知道各个主流商用数据库的程序代码，因此无法自己写代码连接各个数据库，因此sun公司决定自己提供一套API，凡是数据库想与j">
   
     <link rel="alternative" href="/atom.xml" title="TimeSilence" type="application/atom+xml">
   
@@ -261,11 +261,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-JAVA之List" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JDBC基础" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/15/JAVA之List/" class="article-date">
-      <time datetime="2019-03-15T02:05:12.000Z" itemprop="datePublished">2019-03-15</time>
+      <a href="/2019/07/03/JDBC基础/" class="article-date">
+      <time datetime="2019-07-03T07:16:15.000Z" itemprop="datePublished">2019-07-03</time>
 </a>
 
     </div>
@@ -279,7 +279,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      时间复杂度计算
+      JDBC基础
     </h1>
   
 
@@ -291,7 +291,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jdbc/">jdbc</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -301,51 +301,34 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <ul>
-<li>时间复杂度的计算<br>根本没必要计算时间频度，即使计算机处理还要忽略常量，低次幂和最高次幂的系数，所以有了如下方法：<br>1.找出算法中的基本语句：<br>算法中执行次数最多的那条语句为基本语句，通常是最内层循环的循环体。<br>2.计算基本语句执行次数的数量级：<br>只需计算基本语句执行次数的数量级，这就意味着只要保证基本语句执行次数的函数中的最高次幂正确即可，可以忽略所有低次幂和最高次幂系数，这样能够简化算法分析，并且注意力集中在最重要的一点上：增长率。<a id="more"></a>
-3.用O记号表示算法的时间性能。<br>将基本语句执行次数的数量级放入大O记号中。</li>
-<li>时间复杂度举例<ul>
-<li>一个简单语句的时间复杂度为O(1)。<pre><code class="bash">int count=0;
-</code></pre>
-</li>
-<li>100个简单语句的时间复杂度也为O(1)。（100是常数，不是趋向无穷大的n）。</li>
-<li>一个循环的时间复杂度为O(n)。<pre><code class="bash">int n=8,count=0;
-<span class="keyword">for</span>(int i=0;i&lt;n;i++){
-  count++;
-}
-</code></pre>
-T(n)=O(n)</li>
-<li>时间复杂度为O(log2 n)的循环语句。<pre><code class="bash">int n=8,count=0;
-<span class="keyword">for</span>(int i=1;i&lt;=n;i*=2){
-count++;
-}
-</code></pre>
-</li>
-<li>时间复杂度为O(n^2)的二重循环。<pre><code class="bash">int n=8,count=0;
-<span class="keyword">for</span>(int i=1;i&lt;=n;i++){
-<span class="keyword">for</span>(int j=1;j&lt;=n;j++){
-   count++;
-}  }
-</code></pre>
-</li>
-<li>时间复杂度为O(nlog2 n)的二重循环。<pre><code class="bash">int n=8,count=0;
-<span class="keyword">for</span>(int i=1;i&lt;=n;i*=2){
-<span class="keyword">for</span>(int j=1;j&lt;=n;j++){
-count++;
-}
-}
-</code></pre>
-</li>
-<li>时间复杂度为O(n^2)的二重循环。<pre><code class="bash">int n=8,count=0;
-<span class="keyword">for</span>(int i=1;i&lt;=n;i++){
-<span class="keyword">for</span>(int j=1;j&lt;=i;j++){
-   count++;
-}  }
-</code></pre>
-需要些数学运算：1+2+3+…+n=(n+1)*n/2<br>时间复杂度是O(n^2)</li>
+        <p>JDBC(Java Database Connection)为java开发者使用数据库提供了统一的编程接口，它由一组java类和接口组成。是java程序与数据库系统通信的标准API。JDBC API使得开发人员可以使用纯java的方式来连接数据库，并执行操作。</p>
+<p>sun公司由于不知道各个主流商用数据库的程序代码，因此无法自己写代码连接各个数据库，因此sun公司决定自己提供一套API，凡是数据库想与java进行连接的，数据库厂商自己必须实现JDBC这套接口。而数据库厂商的JDBC实现，我们就叫他此数据库的数据库驱动。<br><a id="more"></a><br>*JDBC的常用接口<br>Driver接口</p>
+<ul>
+<li>Driver接口有数据库厂家提供，对于java开发者而言，只需要使用Driver接口就可以了。</li>
+<li>编程中要连接数据库，必须先装载特定厂商的数据库驱动程序。不同的数据库有不同的装载方法。</li>
+<li>驱动：就是各个数据库厂商实现的sun公司提出的JDBC接口。即对Connection等接口的实现类的jar文件。</li>
+<li>装载MySql驱动<br>Class.forName(“com.mysql.jdbc.Driver”);</li>
+<li>装载Oracle驱动<br>Class.forName(“oracle.jdbc.driver.OracleDriver”);<br>DriverManager接口</li>
+<li>DriverManager是JDBC的管理层，作用于用户和驱动程序之间。</li>
+<li>DriverManager跟踪可用的驱动程序，并在数据库和相应的驱动程序之间建立连接。<br>Connection接口</li>
+<li>Connection与特定数据库的连接（回话），在连接上下文中执行SQL语句并返回结果。</li>
+<li>DriverManager的getConnection()方法建立在JDBC URL中定义的数据库Connection连接上。</li>
+<li>连接MYSQL数据库：<ul>
+<li>Connection con =<br>DriverManager.getConnection(“jdbc:mysql://host:port/database”,”user”,”password”);</li>
 </ul>
 </li>
-<li>常用的时间复杂度级别<br>常数阶O(1)<br>对数阶O(log2 n)<br>线性阶O(n)<br>线性对数阶O(nlog2 n)<br>平方阶O(n^2)<br>立方阶O(n^3)<br>…<br>k次方阶O(n^k)<br>指数阶O(2^n)<br>阶乘阶O(n!)</li>
+<li>连接ORACLE数据库：<ul>
+<li>Connection con =<br>DriverManager.getConnection(“jdbc:oracle:thin:@host:post:database”,”user”,”password”);<br>Statement接口</li>
+</ul>
+</li>
+<li>用于执行静态SQL语句并返回它所生成结果的对象。</li>
+<li>三种Statement类：<br>Statement：<ul>
+<li>由createStatement创建，用于发送简单的SQL语句。（不带参数的）<br>PreparedStatement:</li>
+<li>继承自Statement接口，由prepareStatement创建，用于发送含有一个或多个输入参数的SQL语句。PreparedStatement对象比Statement对象效率更高，并且可以防止SQL注入。一般都用PreparedStatement.<br>CallableStatement:</li>
+<li>继承自PreparedStatement.由方法prePareCall创建，用于调用存储过程。</li>
+</ul>
+</li>
+<li>常用的Statement方法：<br>execute():运行语句，返回是否有结果集。<br>executeQuery():运行select语句，返回ResultSet结果集。<br>executeUpdate():运行insert/update/delete操作，返回更新的行数。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">	 </span><br><span class="line">		String url = <span class="string">"jdbc:mysql://localhost:3306/test?useSSL=false&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8"</span>;	//数据库路径（一般都是这样写） </span><br><span class="line">		String name = <span class="string">"root"</span>;		//用户名</span><br><span class="line">		String password = <span class="string">"123"</span>;	//密码</span><br><span class="line">		Connection conn = null;</span><br><span class="line">		PreparedStatement ps = null;</span><br><span class="line">		ResultSet rs = null;</span><br><span class="line">		try &#123;</span><br><span class="line">			Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">		    conn=DriverManager.getConnection(url, name, password);</span><br><span class="line">			String sql=<span class="string">"select * from Stest where id&gt;?"</span>;</span><br><span class="line">		    ps = conn.prepareStatement(sql);</span><br><span class="line">			ps.setObject(1,2);</span><br><span class="line">			rs = ps.executeQuery();</span><br><span class="line">			<span class="keyword">while</span>(rs.next()) &#123;</span><br><span class="line">				System.out.println(rs.getInt(1)+<span class="string">"---"</span>+rs.getString(2)+<span class="string">"---"</span>+rs.getString(3)+<span class="string">"---"</span>+rs.getString(4));</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">			// TODO 自动生成的 catch 块</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			// TODO 自动生成的 catch 块</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			 </span><br><span class="line">		&#125; finally &#123;</span><br><span class="line">			<span class="keyword">if</span>(rs!=null)</span><br><span class="line">				try &#123;</span><br><span class="line">					rs.close();</span><br><span class="line">				&#125; catch (SQLException e) &#123;</span><br><span class="line">					// TODO 自动生成的 catch 块</span><br><span class="line">					e.printStackTrace();</span><br><span class="line">				&#125;</span><br><span class="line">			<span class="keyword">if</span>(ps!=null)</span><br><span class="line">				try &#123;</span><br><span class="line">					ps.close();</span><br><span class="line">				&#125; catch (SQLException e) &#123;</span><br><span class="line">					// TODO 自动生成的 catch 块</span><br><span class="line">					e.printStackTrace();</span><br><span class="line">				&#125;</span><br><span class="line">			<span class="keyword">if</span>(conn!=null)</span><br><span class="line">				try &#123;</span><br><span class="line">					conn.close();</span><br><span class="line">				&#125; catch (SQLException e) &#123;</span><br><span class="line">					// TODO 自动生成的 catch 块</span><br><span class="line">					e.printStackTrace();</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -355,13 +338,13 @@ count++;
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/15/JAVA之List/">时间复杂度计算</a></p>
+        <p><span>本文标题:</span><a href="/2019/07/03/JDBC基础/">JDBC基础</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TimeSilence 的个人博客">TimeSilence</a></p>
-        <p><span>发布时间:</span>2019年03月15日 - 10时05分</p>
-        <p><span>最后更新:</span>2019年03月18日 - 09时48分</p>
+        <p><span>发布时间:</span>2019年07月03日 - 15时16分</p>
+        <p><span>最后更新:</span>2019年07月03日 - 18时14分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/15/JAVA之List/" title="时间复杂度计算">http://yoursite.com/2019/03/15/JAVA之List/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/15/JAVA之List/　　作者: TimeSilence" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/07/03/JDBC基础/" title="JDBC基础">http://yoursite.com/2019/07/03/JDBC基础/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/07/03/JDBC基础/　　作者: TimeSilence" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -372,18 +355,9 @@ count++;
 
 <nav id="article-nav">
   
-    <a href="/2019/03/21/二叉树相关基础/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          二叉树相关基础
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/09/琳/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">琳</div>
+    <a href="/2019/06/04/JAVAEE三层架构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVAEE三层架构</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -468,13 +442,11 @@ count++;
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/21/二叉树相关基础/" title="上一篇: 二叉树相关基础">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/03/09/琳/" title="下一篇: 琳">
+            <a href="/2019/06/04/JAVAEE三层架构/" title="下一篇: JAVAEE三层架构">
                 <i class="fa fa-angle-right"></i>
             </a>
         
