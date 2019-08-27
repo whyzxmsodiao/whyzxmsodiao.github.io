@@ -1,881 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
-  
-  
-  
-  
-  <title>TimeSilence</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="TimeSilence">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
-<meta property="og:site_name" content="TimeSilence">
-<meta property="og:locale" content="en">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TimeSilence">
-  
-    <link rel="alternative" href="/atom.xml" title="TimeSilence" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/002.jpg">
-  
-  
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>TimeSilence</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
     
     
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <!-- 加载特效 -->
-    <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: true,
-          isHome: true,
-          isPost: false,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
-  </script>
-</head></html>
+        
+    
+
+
+</head>
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
 
-        <a href="/" class="profilepic">
-            
-            <img lazy-src="/img/001.jpg" class="js-avatar">
-            
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">TimeSilence</a></h1>
-        </hgroup>
-        
-        
-            <form>
-                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
-            </form>
-            <div id="local-search-result"></div>
-        
-        
-            <script type="text/javascript">
-                (function() {
-                    'use strict';
-                    function getMatchData(keyword, data) {
-                        var matchData = [];
-                        for(var i =0;i<data.length;i++){
-                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
-                                matchData.push(data[i])
-                        }
-                        return matchData;
-                    }
-                    var $input = $('#local-search-input');
-                    var $resultContent = $('#local-search-result');
-                    $input.keyup(function(){
-                        $.ajax({
-                            url: '/search.json',
-                            dataType: "json",
-                            success: function( json ) {
-                                var str='<ul class=\"search-result-list\">';                
-                                var keyword = $input.val().trim().toLowerCase();
-                                $resultContent.innerHTML = "";
-                                if ($input.val().trim().length <= 0) {
-                                    $resultContent.empty();
-                                    $('#switch-area').show();
-                                    return;
-                                }
-                                var results = getMatchData(keyword, json);
-                                if(results.length === 0){
-                                    $resultContent.empty();
-                                    $('#switch-area').show();
-                                    return;
-                                } 
-                                for(var i =0; i<results.length; i++){
-                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
-                                }
-                                str += "</ul>";
-                                $resultContent.empty();
-                                $resultContent.append(str);
-                                $('#switch-area').hide();
-                            }
-                        });
-                    });
-                })();
-            </script>
-        
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                    </div>
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                    </ul>
-                </div>
-            </div>
-        
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fl github" target="_blank" href="https://github.com/whyzxmsodiao" title="github">github</a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java-EE/" style="font-size: 10px;">Java EE</a> <a href="/tags/javaee/" style="font-size: 10px;">javaee</a> <a href="/tags/jdbc/" style="font-size: 10px;">jdbc</a> <a href="/tags/作品/" style="font-size: 10px;">作品</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/遇到的问题/" style="font-size: 15px;">遇到的问题</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
-                    </div>
-                </section>
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="/www.baidu.com">百度一下</a>
-                    
-                    </div>
-                </section>
-                
-                
-            </div>
         </div>
-    </header>
-</div>
-
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">TimeSilence</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                
-                    <img lazy-src="/img/001.jpg" class="js-avatar">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">TimeSilence</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a class="github" target="_blank" href="https://github.com/whyzxmsodiao" title="github">github</a>
-                    
-                </div>
-            </nav>
-        </header>
-    </div>
-</nav>
-      <div class="body-wrap">
-  
-    <article id="post-二叉树相关基础" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/21/二叉树相关基础/" class="article-date">
-      <time datetime="2019-03-21T13:02:05.000Z" itemprop="datePublished">2019-03-21</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/21/二叉树相关基础/">二叉树相关基础</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>二叉树链式存储的简单实现<br>首先是建立结点：<br>
-          
-      
-    </p></div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/03/21/二叉树相关基础/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA之List" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/15/JAVA之List/" class="article-date">
-      <time datetime="2019-03-15T02:05:12.000Z" itemprop="datePublished">2019-03-15</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/15/JAVA之List/">时间复杂度计算</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <ul>
-<li>时间复杂度的计算<br>根本没必要计算时间频度，即使计算机处理还要忽略常量，低次幂和最高次幂的系数，所以有了如下方法：<br>1.找出算法中的基本语句：<br>算法中执行次数最多的那条语句为基本语句，通常是最内层循环的循环体。<br>2.计算基本语句执行次数的数量级：<br>只需计算基本语句执行次数的数量级，这就意味着只要保证基本语句执行次数的函数中的最高次幂正确即可，可以忽略所有低次幂和最高次幂系数，这样能够简化算法分析，并且注意力集中在最重要的一点上：增长率。
-          
-      
-    </li></ul></div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/03/15/JAVA之List/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-琳" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/09/琳/" class="article-date">
-      <time datetime="2019-03-09T02:37:46.000Z" itemprop="datePublished">2019-03-09</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/09/琳/">琳</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>菜鸟学生爱画画……<br>
-          
-      
-    </p></div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作品/">作品</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/03/09/琳/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA之多态" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/09/JAVA之多态/" class="article-date">
-      <time datetime="2019-03-09T00:58:29.000Z" itemprop="datePublished">2019-03-09</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/09/JAVA之多态/">JAVA之多态</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>在了解多态之前，先来巩固下继承。</p>
-<ul>
-<li>继承的使用要点：<br>1，父类也称作超类，基类，派生类等。<br>2，Java中只有单继承，没有像C++那样的多继承。多继承会引起混乱，使得继承链过于复杂，系统难于维护。<br>3，Java中没有多继承，接口有多继承。<br>4，子类继承父类，可以得到父类全部的属性和方法（除了父类的构造方法），但不见得可以直接访问（比如父类的私有属性和方法）。<br>5，如果定义一个类时，没有调用extends，则它的父类是：java.lang.Object。
-          
-      
-    </li></ul></div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2019/03/09/JAVA之多态/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA之构造器" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/06/JAVA之构造器/" class="article-date">
-      <time datetime="2019-03-06T08:03:52.000Z" itemprop="datePublished">2019-03-06</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/06/JAVA之构造器/">JAVA之构造器</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>一，构造方法的定义声明<br>  构造方法的名字必须和所在类的名字一致，没有返回值，但不能声明void，访问权限可以为任意，但是一般情况下用public方法权限，构造方法中的参数可以根据需要自行定义，参数不同的构造方法构成重载.<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> class Rock&#123;</span><br><span class="line"> <span class="function"><span class="title">Rock</span></span>()&#123;&#125;;   //无参构造方法</span><br><span class="line"> Rock(int i)&#123;&#125;;   //有一个参数类型为int构造方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2019/03/06/JAVA之构造器/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-密码学概述" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/05/密码学概述/" class="article-date">
-      <time datetime="2019-03-05T09:44:55.000Z" itemprop="datePublished">2019-03-05</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/05/密码学概述/">密码学概述</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>置换密码<br>1.加密原理：不改变明文字符，只将字符在明文的排列顺序改变，又称换位密码。<br>2.栅栏密码：<br>（1）把将要传递的信息中的字母交替排成上下两行。<br>（2）把下面一行放到上面一行后面。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2019/03/05/密码学概述/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-post城南花开" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/03/post城南花开/" class="article-date">
-      <time datetime="2019-03-03T06:26:31.000Z" itemprop="datePublished">2019-03-03</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/03/post城南花开/">梦醒时分</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src=" //music.163.com/outchain/player?type=2&id=584155&auto=1&height=66"></iframe>
-
-<p> 曾经以为出不去的日子，现在都已回不去了。 </p>
-<p> 我相信这个世界上，有些人有些事有些爱，在见到的第一次，就注定要羁绊一生，就注定像一颗树一样，生长在心里，生生世世。<br> ——宫崎骏<br><br> 一世浮生一刹那，一程山水一年华。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/03/hello-world/" class="article-date">
-      <time datetime="2019-03-03T06:08:28.565Z" itemprop="datePublished">2019-03-03</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/03/hello-world/">Hello World</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br>
-          
-      
-    </p></div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2019/03/03/hello-world/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </nav>
-  
 
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2019 TimeSilence
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
             </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
             </div>
         </div>
-        
-            <div class="visit">
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            
+    <div class="container">
+    <div class="intro">
+        <div class="avatar">
+            <a href="/archives"><img src="/image/avatar.jpeg"></a>
+        </div>
+        <div class="nickname">Jeremy Bentham</div>
+        <div class="description"><p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> <br>Fusce eget urna vitae velit <em>eleifend interdum at ac</em> nisi.</p>
+</div>
+        <div class="links">
+            
                 
-                    <span id="busuanzi_container_site_pv" style="display:none">
-                        <span id="site-visit">极客到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
+                    <a class="link-item" title="Blog" href="/">
+                        
+                        
+                            <i class="iconfont icon-blog"></i>
+                        
+                    </a>
                 
+                    <a class="link-item" title="ZhiHu" href="https://www.zhihu.com/people/sirice">
+                        
+                        
+                            <i class="iconfont icon-zhihu"></i>
+                        
+                    </a>
                 
-                    <span>, </span>
+                    <a class="link-item" title="Instagram" href>
+                        
+                        
+                            <i class="iconfont icon-instagram"></i>
+                        
+                    </a>
                 
+                    <a class="link-item" title="Reddit" href>
+                        
+                        
+                            <i class="iconfont icon-reddit"></i>
+                        
+                    </a>
                 
-                    <span id="busuanzi_container_page_pv" style="display:none">
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
+                    <a class="link-item" title="Github" href="https://github.com/Siricee">
+                        
+                        
+                            <i class="iconfont icon-github"></i>
+                        
+                    </a>
                 
-            </div>
-        
+            
+        </div>
+    </div>
+</div>
+
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© TimeSilence | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
 </footer>
 
     </div>
-    
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-<script src="/js/main.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var backgroundnum = 2;
-            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-        })
-    </script>
-
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'xxxxx', 'auto');
-ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
-
-
-
-	<script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
-</div>
-<script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
-</script>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-  <script language="javascript">
-    $(function() {
-        $("a[title]").each(function() {
-            var a = $(this);
-            var title = a.attr('title');
-            if (title == undefined || title == "") return;
-            a.data('title', title).removeAttr('title').hover(
-            function() {
-                var offset = a.offset();
-                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
-                    top: offset.top - a.outerHeight() - 15,
-                    left: offset.left + a.outerWidth()/2 + 1
-                }).fadeIn(function() {
-                    var pop = $(this);
-                    setTimeout(function() {
-                        pop.remove();
-                    }, pop.text().length * 800);
-                });
-            }, function() {
-                $("#anchortitlecontainer").remove();
-            });
-        });
-    });
-</script>
-
-
-  </div>
 </body>
 </html>
