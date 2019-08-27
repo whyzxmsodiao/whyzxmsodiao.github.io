@@ -7,19 +7,22 @@
   
   
   
-  <title>JAVA之多态 | TimeSilence</title>
+  <title>数组实现队列1 | TimeSilence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在了解多态之前，先来巩固下继承。  继承的使用要点：1，父类也称作超类，基类，派生类等。2，Java中只有单继承，没有像C++那样的多继承。多继承会引起混乱，使得继承链过于复杂，系统难于维护。3，Java中没有多继承，接口有多继承。4，子类继承父类，可以得到父类全部的属性和方法（除了父类的构造方法），但不见得可以直接访问（比如父类的私有属性和方法）。5，如果定义一个类时，没有调用extends，则">
+  <meta name="description" content="队列介绍队列是一个有序列表，可以用数组或链表来实现遵循先进先出的原则，即：先存入队列的数据，要先取出，后存入的要后取出">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA之多态">
-<meta property="og:url" content="http://yoursite.com/2019/03/09/JAVA之多态/index.html">
+<meta property="og:title" content="数组实现队列1">
+<meta property="og:url" content="http://yoursite.com/2019/08/27/数组实现队列1/index.html">
 <meta property="og:site_name" content="TimeSilence">
-<meta property="og:description" content="在了解多态之前，先来巩固下继承。  继承的使用要点：1，父类也称作超类，基类，派生类等。2，Java中只有单继承，没有像C++那样的多继承。多继承会引起混乱，使得继承链过于复杂，系统难于维护。3，Java中没有多继承，接口有多继承。4，子类继承父类，可以得到父类全部的属性和方法（除了父类的构造方法），但不见得可以直接访问（比如父类的私有属性和方法）。5，如果定义一个类时，没有调用extends，则">
+<meta property="og:description" content="队列介绍队列是一个有序列表，可以用数组或链表来实现遵循先进先出的原则，即：先存入队列的数据，要先取出，后存入的要后取出">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-09T02:22:55.651Z">
+<meta property="og:image" content="http://yoursite.com/images/queue1.png">
+<meta property="og:updated_time" content="2019-08-27T14:14:21.976Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA之多态">
-<meta name="twitter:description" content="在了解多态之前，先来巩固下继承。  继承的使用要点：1，父类也称作超类，基类，派生类等。2，Java中只有单继承，没有像C++那样的多继承。多继承会引起混乱，使得继承链过于复杂，系统难于维护。3，Java中没有多继承，接口有多继承。4，子类继承父类，可以得到父类全部的属性和方法（除了父类的构造方法），但不见得可以直接访问（比如父类的私有属性和方法）。5，如果定义一个类时，没有调用extends，则">
+<meta name="twitter:title" content="数组实现队列1">
+<meta name="twitter:description" content="队列介绍队列是一个有序列表，可以用数组或链表来实现遵循先进先出的原则，即：先存入队列的数据，要先取出，后存入的要后取出">
+<meta name="twitter:image" content="http://yoursite.com/images/queue1.png">
   
     <link rel="alternative" href="/atom.xml" title="TimeSilence" type="application/atom+xml">
   
@@ -252,11 +255,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-JAVA之多态" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-数组实现队列1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/09/JAVA之多态/" class="article-date">
-      <time datetime="2019-03-09T00:58:29.000Z" itemprop="datePublished">2019-03-09</time>
+      <a href="/2019/08/27/数组实现队列1/" class="article-date">
+      <time datetime="2019-08-27T14:08:11.000Z" itemprop="datePublished">2019-08-27</time>
 </a>
 
     </div>
@@ -270,7 +273,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JAVA之多态
+      数组实现队列1
     </h1>
   
 
@@ -279,8 +282,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -288,19 +299,268 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>在了解多态之前，先来巩固下继承。</p>
-<ul>
-<li>继承的使用要点：<br>1，父类也称作超类，基类，派生类等。<br>2，Java中只有单继承，没有像C++那样的多继承。多继承会引起混乱，使得继承链过于复杂，系统难于维护。<br>3，Java中没有多继承，接口有多继承。<br>4，子类继承父类，可以得到父类全部的属性和方法（除了父类的构造方法），但不见得可以直接访问（比如父类的私有属性和方法）。<br>5，如果定义一个类时，没有调用extends，则它的父类是：java.lang.Object。<a id="more"></a></li>
-<li>继承树追溯：<br>属性/方法查找顺序：（比如：查找变量h）<br>1，查找当前类中有没有属性h，<br>2，依次上溯每个父类，查看每个父类中是否有h，直到Object。<br>3，如果没找到，则出现编译错误。<br>4，上面步骤，只要找到h变量，这个过程终止。</li>
-<li><p>构造方法的调用顺序：<br>构造方法的第一句总是：super(…)来调用父类的构造方法！！！所以，流程就是：先向上追溯到Object，然后再依次向下执行类的初始化块和构造方法。直到当前子类为止。<br>注：静态初始化块调用顺序，与构造方法调用顺序一样，不再重复。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class TestSuper &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO 自动生成的方法存根</span><br><span class="line">		System.out.println(<span class="string">"创建一个ChildClass对象"</span>);</span><br><span class="line">        new ChildClass();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class FatherClass&#123;</span><br><span class="line">	public <span class="function"><span class="title">FatherClass</span></span>() &#123;</span><br><span class="line">		System.out.println(<span class="string">"创建FatherClass"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class ChildClass extends FatherClass&#123;</span><br><span class="line">	public <span class="function"><span class="title">ChildClass</span></span>() &#123;</span><br><span class="line">		//super();默认存在</span><br><span class="line">		System.out.println(<span class="string">"创建ChildClass"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">Output:</span><br><span class="line">创建一个ChildClass对象</span><br><span class="line">创建FatherClass</span><br><span class="line">创建ChildClass</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>现在来看看多态吧<br>1，多态指的是同一个方法调用，由于对象不同可能会有不同的行为。现实生活中，同一个方法，具体实现会完全不同。<br>2，多态的重点：<br>(1),多态是方法的多态，不是属性的多态（多态与属性无关）。<br>(2),多态的存在要有3个必要条件：继承，方法重写，父类引用指向子类对象。<br>(3),父类引用指向子类对象后，用该父类引用调用子类重写的方法，此时多态就出现了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">  public class TestPolym &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO 自动生成的方法存根</span><br><span class="line">		Animal a=new Animal();</span><br><span class="line">		animalCry(a);</span><br><span class="line">		//Dog d=new Dog();</span><br><span class="line">		Animal d=new Dog();//父类应用指向子类对象，发生了多态</span><br><span class="line">		animalCry(d);</span><br><span class="line">		Animal e=new Cat();</span><br><span class="line">		animalCry(e);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	static void animalCry(Animal a) &#123;</span><br><span class="line">		a.shout();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">class Animal&#123;</span><br><span class="line">	public void <span class="function"><span class="title">shout</span></span>() &#123;</span><br><span class="line">		System.out.println(<span class="string">"叫了一声！"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Dog extends Animal&#123;</span><br><span class="line">	public void <span class="function"><span class="title">shout</span></span>() &#123;  //对于父类shout()方法重写</span><br><span class="line">		System.out.println(<span class="string">"汪汪汪！"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Cat extends Animal&#123;</span><br><span class="line">	public void <span class="function"><span class="title">shout</span></span>() &#123;</span><br><span class="line">		System.out.println(<span class="string">"喵喵喵！"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">Output:</span><br><span class="line">叫了一声！</span><br><span class="line">汪汪汪！</span><br><span class="line">喵喵喵！</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编程中封装的具体优点：<br>1，提高代码的安全性。<br>2，提高代码的复用性。<br>3，“高内聚”：封装细节，便于修改内部代码，提高可维护性。<br>4，“低耦合”：简化外部调用，便于调用者使用，便于扩展和协作。</p>
-</li>
-</ul>
+        <p>队列介绍<br>队列是一个有序列表，可以用数组或链表来实现<br>遵循先进先出的原则，即：先存入队列的数据，要先取出，后存入的要后取出<br><a id="more"></a><br>队列本身是有序列表，若使用数组的结构来存储队列的数据，数组声明如图<br><img src="/images/queue1.png" alt="“queue1”"><br>因为队列的输出，输入是分别从其前后端处理，因此需要两个变量front和rear分别记录队列的前后端下标，front会随着数据输出而改变，rear会随数据输入改变<br>代码实现：</p>
+<pre><code class="bash">package Queue;
+
+import java.util.Scanner;
+
+public class ArrayQueueDemo {
+
+    public static void main(String[] args) {
+        // 测试
+        // 创建一个队列
+        ArrayQueue arrayQueue = new ArrayQueue(3);
+        char key = <span class="string">' '</span>;// 接受用户输入
+        Scanner scanner = new Scanner(System.in);
+        boolean loop = <span class="literal">true</span>;
+        <span class="keyword">while</span> (loop) {
+            System.out.println(<span class="string">"**************************************************"</span>);
+            System.out.println(<span class="string">"s(show):显示队列"</span>);
+            System.out.println(<span class="string">"a(add):添加数据"</span>);
+            System.out.println(<span class="string">"g(get):取出数据"</span>);
+            System.out.println(<span class="string">"h(head):查看头"</span>);
+            System.out.println(<span class="string">"e(exit):退出"</span>);
+            System.out.println(<span class="string">"**************************************************"</span>);
+            key = scanner.next().charAt(0); // 接受一个字符
+            switch (key) {
+            <span class="keyword">case</span> <span class="string">'s'</span>:
+                arrayQueue.showQueue();
+                <span class="built_in">break</span>;
+            <span class="keyword">case</span> <span class="string">'a'</span>:
+                System.out.println(<span class="string">"请输入一个数据："</span>);
+                int value = scanner.nextInt();
+                arrayQueue.addQueue(value);
+                <span class="built_in">break</span>;
+            <span class="keyword">case</span> <span class="string">'g'</span>:
+                try {
+                    int i = arrayQueue.getQueue();
+                    System.out.println(<span class="string">"取出的数据是："</span> + i);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                <span class="built_in">break</span>;
+            <span class="keyword">case</span> <span class="string">'h'</span>:
+                try {
+                    int i = arrayQueue.headQueue();
+                    System.out.println(<span class="string">"队列头是："</span> + i);
+                } catch (Exception e) {
+                    // TODO: handle exception
+                    System.out.println(e.getMessage());
+                }
+                <span class="built_in">break</span>;
+            <span class="keyword">case</span> <span class="string">'e'</span>:
+                scanner.close();
+                loop = <span class="literal">false</span>;
+                <span class="built_in">break</span>;
+
+            default:
+                <span class="built_in">break</span>;
+            }
+        }
+
+        System.out.println(<span class="string">"程序退出成功"</span>);
+    }
+
+}
+//使用数组模拟队列
+class ArrayQueue{
+    private int MaxSize;   //数组最大容量
+    private int front;    //指向头
+    private int rear;    //指向尾
+    private int[] arr;    //用于存放数据，模拟队列
+    //创建队列构造器
+    public ArrayQueue(int MaxSize) {
+        this.MaxSize=MaxSize;
+        arr=new int[MaxSize];
+        this.front=-1;   //front表示队列头前一个位置
+        this.rear=-1;   //rear指向队列尾，即队列最后一个数据
+    }
+    //判断队列是否满
+    public boolean <span class="function"><span class="title">isFull</span></span>(){
+        <span class="built_in">return</span> rear==MaxSize-1;
+    }
+    //判断队列是否为空
+    public boolean <span class="function"><span class="title">isEmpty</span></span>() {
+        <span class="built_in">return</span> front==rear;
+    }
+    //添加数据到队列
+    public void addQueue(int n) {
+        //判断队列是否满
+        <span class="keyword">if</span>(isFull()) {
+            System.out.println(<span class="string">"队列已满*****************************************"</span>);
+        }
+        <span class="keyword">else</span> {
+            rear++;
+            arr[rear]=n;
+        }
+    }
+    //从队列取出数据
+    public int <span class="function"><span class="title">getQueue</span></span>(){
+      //判断队列是否空
+        <span class="keyword">if</span>(isEmpty()) {
+            throw new RuntimeException(<span class="string">"队列为空，不能取数据"</span>);
+        }
+        <span class="keyword">else</span> {
+            front++;
+            <span class="built_in">return</span> arr[front];
+        }
+
+    }
+    //显示队列
+    public void <span class="function"><span class="title">showQueue</span></span>() {
+        <span class="keyword">if</span>(isEmpty()) {
+            System.out.println(<span class="string">"队列为空，没有数据****************************"</span>);
+        }<span class="keyword">else</span> {
+            <span class="keyword">for</span>(int i=0;i&lt;arr.length;i++) {
+                System.out.print(<span class="string">"a["</span>+i+<span class="string">"]"</span>+arr[i]+<span class="string">" "</span>);
+            }
+            System.out.println();
+        }
+    }
+    //显示队列头数据，注意不是取出数据
+    public int <span class="function"><span class="title">headQueue</span></span>() {
+        <span class="keyword">if</span>(isEmpty()) {
+            throw new RuntimeException(<span class="string">"队列为空，没有数据************************"</span>);
+        }<span class="keyword">else</span> {
+            <span class="built_in">return</span> arr[front+1];
+        }
+    }
+
+}
+output:
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+s
+队列为空，没有数据****************************
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+a
+请输入一个数据：
+11
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+s
+a[0]11 a[1]0 a[2]0 
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+a
+请输入一个数据：
+22
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+a
+请输入一个数据：
+33
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+s
+a[0]11 a[1]22 a[2]33 
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+a
+请输入一个数据：
+2
+队列已满*****************************************
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+g
+取出的数据是：11
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+h
+队列头是：22
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+g
+取出的数据是：22
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+g
+取出的数据是：33
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+g
+队列为空，不能取数据
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+h
+队列为空，没有数据************************
+**************************************************
+s(show):显示队列
+a(add):添加数据
+g(get):取出数据
+h(head):查看头
+e(<span class="built_in">exit</span>):退出
+**************************************************
+e
+程序退出成功
+</code></pre>
+<p>问题分析：<br>1.当前数组使用一次之后便不能再用<br>2.将这个数组使用算法，改进成一个环形队列（取模）</p>
 
       
     </div>
@@ -309,13 +569,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/09/JAVA之多态/">JAVA之多态</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/27/数组实现队列1/">数组实现队列1</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TimeSilence 的个人博客">TimeSilence</a></p>
-        <p><span>发布时间:</span>2019年03月09日 - 08时58分</p>
-        <p><span>最后更新:</span>2019年03月09日 - 10时22分</p>
+        <p><span>发布时间:</span>2019年08月27日 - 22时08分</p>
+        <p><span>最后更新:</span>2019年08月27日 - 22时14分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/09/JAVA之多态/" title="JAVA之多态">http://yoursite.com/2019/03/09/JAVA之多态/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/09/JAVA之多态/　　作者: TimeSilence" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/27/数组实现队列1/" title="数组实现队列1">http://yoursite.com/2019/08/27/数组实现队列1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/27/数组实现队列1/　　作者: TimeSilence" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -326,18 +586,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/03/09/琳/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          琳
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/06/JAVA之构造器/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA之构造器</div>
+    <a href="/2019/08/26/稀疏数组-sparsearray/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">稀疏数组(sparsearray)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -410,13 +661,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/09/琳/" title="上一篇: 琳">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/03/06/JAVA之构造器/" title="下一篇: JAVA之构造器">
+            <a href="/2019/08/26/稀疏数组-sparsearray/" title="下一篇: 稀疏数组(sparsearray)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
