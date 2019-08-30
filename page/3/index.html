@@ -7,19 +7,15 @@
   
   
   
-  <title>JAVA之构造器 | TimeSilence</title>
+  <title>TimeSilence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一，构造方法的定义声明  构造方法的名字必须和所在类的名字一致，没有返回值，但不能声明void，访问权限可以为任意，但是一般情况下用public方法权限，构造方法中的参数可以根据需要自行定义，参数不同的构造方法构成重载.  1234 class Rock&amp;#123; Rock()&amp;#123;&amp;#125;;   //无参构造方法 Rock(int i)&amp;#123;&amp;#125;;   //有一个参数类">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JAVA之构造器">
-<meta property="og:url" content="http://yoursite.com/2019/03/06/JAVA之构造器/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="TimeSilence">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="TimeSilence">
-<meta property="og:description" content="一，构造方法的定义声明  构造方法的名字必须和所在类的名字一致，没有返回值，但不能声明void，访问权限可以为任意，但是一般情况下用public方法权限，构造方法中的参数可以根据需要自行定义，参数不同的构造方法构成重载.  1234 class Rock&amp;#123; Rock()&amp;#123;&amp;#125;;   //无参构造方法 Rock(int i)&amp;#123;&amp;#125;;   //有一个参数类">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-08T08:14:11.421Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA之构造器">
-<meta name="twitter:description" content="一，构造方法的定义声明  构造方法的名字必须和所在类的名字一致，没有返回值，但不能声明void，访问权限可以为任意，但是一般情况下用public方法权限，构造方法中的参数可以根据需要自行定义，参数不同的构造方法构成重载.  1234 class Rock&amp;#123; Rock()&amp;#123;&amp;#125;;   //无参构造方法 Rock(int i)&amp;#123;&amp;#125;;   //有一个参数类">
+<meta name="twitter:title" content="TimeSilence">
   
     <link rel="alternative" href="/atom.xml" title="TimeSilence" type="application/atom+xml">
   
@@ -33,6 +29,9 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
+    
+    
+  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -43,8 +42,8 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: false,
-          isPost: true,
+          isHome: true,
+          isPost: false,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -252,11 +251,13 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-JAVA之构造器" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/06/JAVA之构造器/" class="article-date">
-      <time datetime="2019-03-06T08:03:52.000Z" itemprop="datePublished">2019-03-06</time>
+      <a href="/2019/03/03/hello-world/" class="article-date">
+      <time datetime="2019-03-03T06:08:28.565Z" itemprop="datePublished">2019-03-03</time>
 </a>
 
     </div>
@@ -269,185 +270,56 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      JAVA之构造器
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/03/hello-world/">Hello World</a>
     </h1>
   
 
 
       </header>
       
-      <div class="article-info article-info-post">
-        
-
-        
-        <div class="clearfix"></div>
-      </div>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>一，构造方法的定义声明<br>  构造方法的名字必须和所在类的名字一致，没有返回值，但不能声明void，访问权限可以为任意，但是一般情况下用public方法权限，构造方法中的参数可以根据需要自行定义，参数不同的构造方法构成重载.<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> class Rock&#123;</span><br><span class="line"> <span class="function"><span class="title">Rock</span></span>()&#123;&#125;;   //无参构造方法</span><br><span class="line"> Rock(int i)&#123;&#125;;   //有一个参数类型为int构造方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-  <a id="more"></a>
-<p> 二，构造方法的使用<br> java中构造方法的使用有两个地方：<br> 1，跟在关键字new后面，类名加上小括号(),小括号内根据实际加上参数。<br> 2，跟在关键字this或super后加上小括号()，小括号内根据实际加上参数。<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Rock rock1=new Rock();</span><br><span class="line">//这里是调用一个无参的构造方法，必须声明在方法中，最好声明在主方法中。</span><br><span class="line">Rock rock2=new Rock(3);</span><br><span class="line">//这里调用参数为int类型的构造方法。</span><br><span class="line"> *  <span class="function"><span class="title">Rock</span></span>()&#123;</span><br><span class="line">this(4);  //调用参数为int类型的本类的构造方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p> 注意：*中this调用构造方法只能出现在构造方法中，而且必须出现在第一行，所以一个构造方法中第一行只能为this或super调用构造方法，两者不能同时调用构造方法出现，而且注意this或super调用构造方法时，要留构造方法出口，意思就是最后调用的构造方法中没有再调用别的构造方法。<br> 三，构造方法的作用<br> 1，为了初始化成员属性，而不是初始化对象，初始化对象是通过new关键字实现的。<br> 2，通过new调用构造方法来初始化对象，编译时根据参数签名来检查构造函数，称为静态联编和编译多态。（参数签名：参数的类型，参数的个数，参数的顺序）<br> 3，创建子类对象会调用父类构造方法但不会创建父类对象，只是调用父类构造方法初始化父类成员属性。</p>
-<p> 特别注意：</p>
-<ul>
-<li>创建一个对象分为如下四步：<br>1，分配对象空间，并对对象成员变量初始化为0或空。<br>2，执行属性值的显式初始化。<br>3，执行构造方法。<br>4，返回对象的地址给相关的变量。</li>
-<li>this的本质“创建好的对象的地址”！！！由于在构造方法调用前，对象已经创建。因此，在构造方法中也可以使用this代表当前对象。<br>this最常用的用法：<br>1，在程序产生二义性之处，应使用this来指明当前对象；在普通方法中，this总是指向调用该方法的对象，构造方法中，this总是指向正要初始化的对象。<br>2，使用this关键字调用重载的构造方法，避免相同的初始化代码，但只能在构造方法中用，并且必须位于构造方法的第一句。<br>3，this不能用于static方法中。</li>
-<li>super是直接父类对象的引用，可以通过super来访问父类中被子类覆盖的方法或属性。</li>
-</ul>
+              <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br>
+          
+      
+    </p></div>
+    
+    <div class="article-info article-info-index">
+      
+      
 
       
+      
+        <p class="article-more-link">
+          <a href="/2019/03/03/hello-world/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
     </div>
     
   </div>
   
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/06/JAVA之构造器/">JAVA之构造器</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 TimeSilence 的个人博客">TimeSilence</a></p>
-        <p><span>发布时间:</span>2019年03月06日 - 16时03分</p>
-        <p><span>最后更新:</span>2019年03月08日 - 16时14分</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/06/JAVA之构造器/" title="JAVA之构造器">http://yoursite.com/2019/03/06/JAVA之构造器/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/06/JAVA之构造器/　　作者: TimeSilence" title></span>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-<nav id="article-nav">
-  
-    <a href="/2019/03/09/JAVA之多态/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          JAVA之多态
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/03/05/密码学概述/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">密码学概述</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-
-  
 </article>
 
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    
-</div>
-<style>
-    .left-col .switch-btn {
-        display: none;
-    }
-    .left-col .switch-area {
-        display: none;
-    }
-</style>
-<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
-
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-            $(".switch-btn, .switch-area").fadeOut(300);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-            $(".switch-btn, .switch-area").fadeIn(500);
-        }
-    })
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-        $(".switch-btn, .switch-area").show();
-    }
-</script>
 
 
 
 
 
 
-    
-        <section class="changyan" id="comments">
-  <!--<div id="uyan_frame"></div>-->
-  <div id="SOHUCS"></div>
-  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
-  <script type="text/javascript">
-    window.changyan.api.config({
-      appid: 'xxxx',
-      conf: 'xxxxxxxxx'
-    });
-  </script>
-</section>
-    
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2019/03/09/JAVA之多态/" title="上一篇: JAVA之多态">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-        
-            <a href="/2019/03/05/密码学概述/" title="下一篇: 密码学概述">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/30/链表操作/">链表操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/30/数组实现队列2/">数组实现队列2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/27/数组实现队列1/">数组实现队列1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/26/稀疏数组-sparsearray/">稀疏数组(sparsearray)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/myeclipse-自动补充返回类型和变量方法（快捷键）/">myeclipse 自动补充返回类型和变量方法（快捷键）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/安装MySQL后，开机出现-缺少根元素-的错误提示解决办法/">安装MySQL后，开机出现 缺少根元素 的错误提示解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/JDBC基础/">JDBC基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/JAVAEE三层架构/">JAVAEE三层架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/09/cmd基础操作/">cmd基础操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/随笔/">我自风情万种，与世无争</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/03/Java-EE-01/">Java EE 01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/单链表基本操作/">单链表基本操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/顺序表基本操作/">顺序表基本操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/二叉树相关基础/">二叉树相关基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/JAVA之List/">时间复杂度计算</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/琳/">琳</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/JAVA之多态/">JAVA之多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/JAVA之构造器/">JAVA之构造器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/05/密码学概述/">密码学概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/post城南花开/">梦醒时分</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/hello-world/">Hello World</a></li></ul>
-    
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-    <script>
-        $(".post-list").addClass("toc-article");
-        // $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#toc, .switch-btn, .switch-area").toggle();
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-                $(".switch-btn, .switch-area").fadeToggle(300);
-            }
-        })
-    </script>
 
 
 
 
-    <script>
-        
-    </script>
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
+  
 
 </div>
       <footer id="footer">
