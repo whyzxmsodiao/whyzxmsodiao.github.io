@@ -7,20 +7,22 @@
   
   
   
-  <title>我自风情万种，与世无争 | TimeSilence</title>
+  <title>单链表典型题1 | TimeSilence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="很喜欢成果老师的一段话：   什么叫做我自风情万种，与世无争。">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="1，求单链表中有效结点的个数12345678910111213public static int getLength(Node head) &amp;#123;	if(head.next==null) &amp;#123;		return 0;	&amp;#125;	int length=0;	Node temp=head.next;	while(temp!=null) &amp;#123;		length++;		temp=t">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我自风情万种，与世无争">
-<meta property="og:url" content="http://yoursite.com/2019/05/04/随笔/index.html">
+<meta property="og:title" content="单链表典型题1">
+<meta property="og:url" content="http://yoursite.com/2019/08/31/单链表典型题1/index.html">
 <meta property="og:site_name" content="TimeSilence">
-<meta property="og:description" content="很喜欢成果老师的一段话：   什么叫做我自风情万种，与世无争。">
+<meta property="og:description" content="1，求单链表中有效结点的个数12345678910111213public static int getLength(Node head) &amp;#123;	if(head.next==null) &amp;#123;		return 0;	&amp;#125;	int length=0;	Node temp=head.next;	while(temp!=null) &amp;#123;		length++;		temp=t">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-04T05:36:00.112Z">
+<meta property="og:image" content="http://yoursite.com/images/reverseList.png">
+<meta property="og:updated_time" content="2019-08-31T03:10:00.512Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我自风情万种，与世无争">
-<meta name="twitter:description" content="很喜欢成果老师的一段话：   什么叫做我自风情万种，与世无争。">
+<meta name="twitter:title" content="单链表典型题1">
+<meta name="twitter:description" content="1，求单链表中有效结点的个数12345678910111213public static int getLength(Node head) &amp;#123;	if(head.next==null) &amp;#123;		return 0;	&amp;#125;	int length=0;	Node temp=head.next;	while(temp!=null) &amp;#123;		length++;		temp=t">
+<meta name="twitter:image" content="http://yoursite.com/images/reverseList.png">
   
     <link rel="alternative" href="/atom.xml" title="TimeSilence" type="application/atom+xml">
   
@@ -253,11 +255,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-随笔" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-单链表典型题1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/05/04/随笔/" class="article-date">
-      <time datetime="2019-05-04T05:15:24.000Z" itemprop="datePublished">2019-05-04</time>
+      <a href="/2019/08/31/单链表典型题1/" class="article-date">
+      <time datetime="2019-08-31T02:52:59.000Z" itemprop="datePublished">2019-08-31</time>
 </a>
 
     </div>
@@ -271,7 +273,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      我自风情万种，与世无争
+      单链表典型题1
     </h1>
   
 
@@ -280,10 +282,14 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+    </div>
+
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -293,7 +299,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>很喜欢成果老师的一段话：<br>   什么叫做我自风情万种，与世无争。<a id="more"></a><br>   在不干扰别人的情况下，<br>   在不给别人带来麻烦的情况下，<br>   其实真不必那么看重别人的想法，<br>   不必那么看重别人的意见。<br>   前提条件：不要影响别人，不要干扰别人的自由，不要给别人添麻烦。<br>   逗号，<br>   然后做你自己，<br>   做真实的自己，<br>   活出真实的你。<br>   率性一点，自然一点，从容一点，真实一点。</p>
+        <p>1，求单链表中有效结点的个数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static int getLength(Node head) &#123;</span><br><span class="line">	<span class="keyword">if</span>(head.next==null) &#123;</span><br><span class="line">		<span class="built_in">return</span> 0;</span><br><span class="line">	&#125;</span><br><span class="line">	int length=0;</span><br><span class="line">	Node temp=head.next;</span><br><span class="line">	<span class="keyword">while</span>(temp!=null) &#123;</span><br><span class="line">		length++;</span><br><span class="line">		temp=temp.next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> length;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>2，查找单链表中倒数第k个结点<br>分析：编写一个方法，接受head结点，和一个index（index表示是倒数第几个结点）<br>     先把链表从头到尾遍历，得到链表总长度、<br>     得到size后，从链表第一个开始遍历（size-index)个，就可以得到。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//2，查找单链表中倒数第k个结点</span><br><span class="line">public static Node findLastIndexNode(Node head,int index) &#123;</span><br><span class="line">	<span class="keyword">if</span>(head.next==null) &#123;</span><br><span class="line">		<span class="built_in">return</span> null;</span><br><span class="line">	&#125;</span><br><span class="line">	//遍历第一次得到链表的size</span><br><span class="line">	int size=getLength(head);</span><br><span class="line">	//第二次遍历到size-index处</span><br><span class="line">	//先校验index</span><br><span class="line">	<span class="keyword">if</span>(index&lt;=0||index&gt;size) &#123;</span><br><span class="line">		<span class="built_in">return</span> null;</span><br><span class="line">	&#125;</span><br><span class="line">	Node temp=head.next;</span><br><span class="line">	<span class="keyword">for</span>(int i=0;i&lt;size-index;i++) &#123;</span><br><span class="line">		temp=temp.next;		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3，单链表的反转<br>分析：<br> <img src="/images/reverseList.png" alt="“reverseList”"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//反转一个单链表</span><br><span class="line">public static void reverseList(Node head) &#123;</span><br><span class="line">	<span class="keyword">if</span>(head.next==null||head.next.next==null) &#123; //当链表元素为空或只有一个元素时直接返回</span><br><span class="line">		<span class="built_in">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Node temp=head.next;</span><br><span class="line">	Node next=null;</span><br><span class="line">	Node reverseHead=new Node(0,<span class="string">""</span>);</span><br><span class="line">	<span class="keyword">while</span>(temp!=null) &#123;</span><br><span class="line">		next=temp.next;  //保存temp.next</span><br><span class="line">		temp.next=reverseHead.next;</span><br><span class="line">		reverseHead.next=temp;</span><br><span class="line">		temp=next;	</span><br><span class="line">	&#125;</span><br><span class="line">	head.next=reverseHead.next;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试结果<br>output:<br>Node [no=1, name=小明明]<br>Node [no=3, name=小李]<br>Node [no=4, name=小黄]<br>链表结点个数为：3<br>倒数第二个节点为：Node [no=3, name=小李]<br>反转链表<br>Node [no=4, name=小黄]<br>Node [no=3, name=小李]<br>Node [no=1, name=小明明]</p>
 
       
     </div>
@@ -302,13 +312,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/05/04/随笔/">我自风情万种，与世无争</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/31/单链表典型题1/">单链表典型题1</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TimeSilence 的个人博客">TimeSilence</a></p>
-        <p><span>发布时间:</span>2019年05月04日 - 13时15分</p>
-        <p><span>最后更新:</span>2019年05月04日 - 13时36分</p>
+        <p><span>发布时间:</span>2019年08月31日 - 10时52分</p>
+        <p><span>最后更新:</span>2019年08月31日 - 11时10分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/05/04/随笔/" title="我自风情万种，与世无争">http://yoursite.com/2019/05/04/随笔/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/04/随笔/　　作者: TimeSilence" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/31/单链表典型题1/" title="单链表典型题1">http://yoursite.com/2019/08/31/单链表典型题1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/31/单链表典型题1/　　作者: TimeSilence" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -319,18 +329,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/05/09/cmd基础操作/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          cmd基础操作
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/04/03/Java-EE-01/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java EE 01</div>
+    <a href="/2019/08/30/链表操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">链表操作</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -403,13 +404,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/05/09/cmd基础操作/" title="上一篇: cmd基础操作">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/04/03/Java-EE-01/" title="下一篇: Java EE 01">
+            <a href="/2019/08/30/链表操作/" title="下一篇: 链表操作">
                 <i class="fa fa-angle-right"></i>
             </a>
         
