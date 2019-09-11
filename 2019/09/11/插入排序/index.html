@@ -7,20 +7,20 @@
   
   
   
-  <title>迷宫问题（递归） | TimeSilence</title>
+  <title>插入排序 | TimeSilence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="递归递归就是方法自己调用自己，每次调用时传入不同的变量，递归有助于编程者解决复杂问题，同时可以让代码变得简洁。递归用于解决什么问题1.各种数学问题：八皇后问题，汉诺塔，阶乘问题，迷宫问题，球和篮子问题等2.快排，归并排序，二分查找，分治算法等">
+  <meta name="description" content="插入排序 插入排序属于内部排序算法。是对于欲排序的元素以插入的方式寻找该元素的适当位置，以达到排序的目的。 插入排序（Insertion Sorting)的基本思想：把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含n-1个元素，排序过程中每次从无序表中取出一个元素，把它的排序码依次和有序表元素进行比较，将它插入到有序表中的适当位置，使之成为新的有序表。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="迷宫问题（递归）">
-<meta property="og:url" content="http://yoursite.com/2019/09/07/迷宫问题（递归）/index.html">
+<meta property="og:title" content="插入排序">
+<meta property="og:url" content="http://yoursite.com/2019/09/11/插入排序/index.html">
 <meta property="og:site_name" content="TimeSilence">
-<meta property="og:description" content="递归递归就是方法自己调用自己，每次调用时传入不同的变量，递归有助于编程者解决复杂问题，同时可以让代码变得简洁。递归用于解决什么问题1.各种数学问题：八皇后问题，汉诺塔，阶乘问题，迷宫问题，球和篮子问题等2.快排，归并排序，二分查找，分治算法等">
+<meta property="og:description" content="插入排序 插入排序属于内部排序算法。是对于欲排序的元素以插入的方式寻找该元素的适当位置，以达到排序的目的。 插入排序（Insertion Sorting)的基本思想：把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含n-1个元素，排序过程中每次从无序表中取出一个元素，把它的排序码依次和有序表元素进行比较，将它插入到有序表中的适当位置，使之成为新的有序表。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-07T15:01:12.459Z">
+<meta property="og:updated_time" content="2019-09-11T08:33:40.665Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="迷宫问题（递归）">
-<meta name="twitter:description" content="递归递归就是方法自己调用自己，每次调用时传入不同的变量，递归有助于编程者解决复杂问题，同时可以让代码变得简洁。递归用于解决什么问题1.各种数学问题：八皇后问题，汉诺塔，阶乘问题，迷宫问题，球和篮子问题等2.快排，归并排序，二分查找，分治算法等">
+<meta name="twitter:title" content="插入排序">
+<meta name="twitter:description" content="插入排序 插入排序属于内部排序算法。是对于欲排序的元素以插入的方式寻找该元素的适当位置，以达到排序的目的。 插入排序（Insertion Sorting)的基本思想：把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含n-1个元素，排序过程中每次从无序表中取出一个元素，把它的排序码依次和有序表元素进行比较，将它插入到有序表中的适当位置，使之成为新的有序表。">
   
     <link rel="alternative" href="/atom.xml" title="TimeSilence" type="application/atom+xml">
   
@@ -257,11 +257,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-迷宫问题（递归）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-插入排序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/09/07/迷宫问题（递归）/" class="article-date">
-      <time datetime="2019-09-07T14:53:25.000Z" itemprop="datePublished">2019-09-07</time>
+      <a href="/2019/09/11/插入排序/" class="article-date">
+      <time datetime="2019-09-11T08:26:24.000Z" itemprop="datePublished">2019-09-11</time>
 </a>
 
     </div>
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      迷宫问题（递归）
+      插入排序
     </h1>
   
 
@@ -301,9 +301,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>递归<br>递归就是方法自己调用自己，每次调用时传入不同的变量，递归有助于编程者解决复杂问题，同时可以让代码变得简洁。<br>递归用于解决什么问题<br>1.各种数学问题：八皇后问题，汉诺塔，阶乘问题，迷宫问题，球和篮子问题等<br>2.快排，归并排序，二分查找，分治算法等<br><a id="more"></a><br>递归需要遵守的重要规则<br>1.执行一个方法时，就建立一个新的受保护的独立空间（栈空间）<br>2.方法的局部变量是独立的，不会相互影响<br>3.递归必须向推出递归的条件逼近，否则就是无限递归，出现StackOverflowError<br>4.当一个方法执行完毕，或者遇到return，就会返回，遵守谁调用，就将结果返回给谁，同时当方法执行完毕或者返回时，该方法也就执行完毕</p>
-<p>迷宫问题简单实现<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">package recursion;</span><br><span class="line"></span><br><span class="line">public class MiGong &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[][] map=new int[8][8];</span><br><span class="line">		<span class="keyword">for</span>(int i=0;i&lt;8;i++) &#123;</span><br><span class="line">			map[0][i]=1;</span><br><span class="line">			map[7][i]=1;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(int i=0;i&lt;8;i++) &#123;</span><br><span class="line">			map[i][0]=1;</span><br><span class="line">			map[i][7]=1;</span><br><span class="line">		&#125;</span><br><span class="line">		map[3][1]=1;</span><br><span class="line">		map[3][2]=1;</span><br><span class="line">		map[1][5]=1;</span><br><span class="line">		map[2][5]=1;</span><br><span class="line">		<span class="keyword">for</span>(int i=0;i&lt;8;i++) &#123;</span><br><span class="line">			<span class="keyword">for</span>(int j=0;j&lt;8;j++) &#123;</span><br><span class="line">				System.out.print(map[i][j]+<span class="string">" "</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		//开始走迷宫</span><br><span class="line">		findWay(map, 2, 1);</span><br><span class="line">		System.out.println(<span class="string">"走迷宫情况"</span>);</span><br><span class="line">		<span class="keyword">for</span>(int i=0;i&lt;8;i++) &#123;</span><br><span class="line">			<span class="keyword">for</span>(int j=0;j&lt;8;j++) &#123;</span><br><span class="line">				System.out.print(map[i][j]+<span class="string">" "</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	/*</span><br><span class="line">	 * 1.map表示地图</span><br><span class="line">	 * 2.i，j表示从地图的那个位置开始出发(1,1)</span><br><span class="line">	 * 3.如果小球能到map[6][6]处，则说明通路找到</span><br><span class="line">	 * 4.规定：当map[i][j]为0表示该点没有走过，1表示墙，2表示通路可以走，3表示该点已经走过</span><br><span class="line">	 * 5.在走迷宫时，需要确定一个策略。下--右--上--左</span><br><span class="line">	 */</span><br><span class="line">	public static boolean findWay(int[][] map,int i,int j) &#123;</span><br><span class="line">		<span class="keyword">if</span>(map[6][6]==2) &#123;</span><br><span class="line">			<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(map[i][j]==0) &#123;  //如果当前这个点还没有走过</span><br><span class="line">				//按照策略 下-右-上-左</span><br><span class="line">				map[i][j]=2;</span><br><span class="line">				<span class="keyword">if</span>(findWay(map,i+1,j)) &#123;//向下走</span><br><span class="line">					<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(findWay(map,i,j+1)) &#123;   //向右</span><br><span class="line">					<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(findWay(map,i-1,j)) &#123;   //向上</span><br><span class="line">					<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(findWay(map,i,j-1)) &#123;   //向左</span><br><span class="line">					<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">				&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">					map[i][j]=3;</span><br><span class="line">					<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>output:<br>1 1 1 1 1 1 1 1<br>1 0 0 0 0 1 0 1<br>1 0 0 0 0 1 0 1<br>1 1 1 0 0 0 0 1<br>1 0 0 0 0 0 0 1<br>1 0 0 0 0 0 0 1<br>1 0 0 0 0 0 0 1<br>1 1 1 1 1 1 1 1<br>走迷宫情况<br>1 1 1 1 1 1 1 1<br>1 0 0 0 0 1 0 1<br>1 2 2 2 0 1 0 1<br>1 1 1 2 0 0 0 1<br>1 0 0 2 0 0 0 1<br>1 0 0 2 0 0 0 1<br>1 0 0 2 2 2 2 1<br>1 1 1 1 1 1 1 1 </p>
+        <p>插入排序</p>
+<pre><code>插入排序属于内部排序算法。是对于欲排序的元素以插入的方式寻找该元素的适当位置，以达到排序的目的。
+</code></pre><p>插入排序（Insertion Sorting)的基本思想：把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含n-1个元素，排序过程中每次从无序表中取出一个元素，把它的排序码依次和有序表元素进行比较，将它插入到有序表中的适当位置，使之成为新的有序表。<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package sort;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class InsertSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] arr= &#123;22,4,34,2,54,25,67,33,21&#125;;</span><br><span class="line">      insertSort(arr);</span><br><span class="line">	&#125;</span><br><span class="line">	//插入排序</span><br><span class="line">	public static void insertSort(int[] arr) &#123;</span><br><span class="line">		//定义待插入的值</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;arr.length;i++) &#123;</span><br><span class="line">		int insertVal=arr[i];</span><br><span class="line">		int insertIndex=i-1;</span><br><span class="line">		<span class="keyword">while</span>(insertIndex&gt;=0&amp;&amp;insertVal&lt;arr[insertIndex]) &#123;</span><br><span class="line">			arr[insertIndex+1]=arr[insertIndex];  //此时&#123;22,22,34,2,54,25,67,33,21&#125;;</span><br><span class="line">			insertIndex--;  //重点理解</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(insertIndex+1!=i) &#123;</span><br><span class="line">		arr[insertIndex+1]=insertVal;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"第"</span>+i+<span class="string">"轮:"</span>+Arrays.toString(arr));</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>output：<br>第1轮:[4, 22, 34, 2, 54, 25, 67, 33, 21]<br>第2轮:[4, 22, 34, 2, 54, 25, 67, 33, 21]<br>第3轮:[2, 4, 22, 34, 54, 25, 67, 33, 21]<br>第4轮:[2, 4, 22, 34, 54, 25, 67, 33, 21]<br>第5轮:[2, 4, 22, 25, 34, 54, 67, 33, 21]<br>第6轮:[2, 4, 22, 25, 34, 54, 67, 33, 21]<br>第7轮:[2, 4, 22, 25, 33, 34, 54, 67, 21]<br>第8轮:[2, 4, 21, 22, 25, 33, 34, 54, 67]</p>
 
       
     </div>
@@ -312,13 +313,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/09/07/迷宫问题（递归）/">迷宫问题（递归）</a></p>
+        <p><span>本文标题:</span><a href="/2019/09/11/插入排序/">插入排序</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TimeSilence 的个人博客">TimeSilence</a></p>
-        <p><span>发布时间:</span>2019年09月07日 - 22时53分</p>
-        <p><span>最后更新:</span>2019年09月07日 - 23时01分</p>
+        <p><span>发布时间:</span>2019年09月11日 - 16时26分</p>
+        <p><span>最后更新:</span>2019年09月11日 - 16时33分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/09/07/迷宫问题（递归）/" title="迷宫问题（递归）">http://yoursite.com/2019/09/07/迷宫问题（递归）/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/09/07/迷宫问题（递归）/　　作者: TimeSilence" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/09/11/插入排序/" title="插入排序">http://yoursite.com/2019/09/11/插入排序/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/09/11/插入排序/　　作者: TimeSilence" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -329,18 +330,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/09/08/八皇后问题（回溯法）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          八皇后问题（回溯法）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/06/前缀，中缀，后缀表达式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前缀，中缀，后缀表达式</div>
+    <a href="/2019/09/11/选项排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">选项排序</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -413,13 +405,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/09/08/八皇后问题（回溯法）/" title="上一篇: 八皇后问题（回溯法）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/09/06/前缀，中缀，后缀表达式/" title="下一篇: 前缀，中缀，后缀表达式">
+            <a href="/2019/09/11/选项排序/" title="下一篇: 选项排序">
                 <i class="fa fa-angle-right"></i>
             </a>
         
