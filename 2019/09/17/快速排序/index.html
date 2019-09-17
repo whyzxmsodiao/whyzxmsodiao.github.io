@@ -7,20 +7,20 @@
   
   
   
-  <title>Java中try catch finally语句中含有return语句的执行情况 | TimeSilence</title>
+  <title>快速排序 | TimeSilence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网上查阅找到的，感觉总结到位：），原文点这里对于含有return语句的情况，可以简单地总结如下： try语句在返回前，将其他所有的操作执行完，保留好要返回的值，而后转入执行finally中的语句，而后分为以下三种情况：    情况一：如果finally中有return语句，则会将try中的return语句”覆盖“掉，直接执行finally中的return语句，得到返回值，这样便无法得到try之前保">
-<meta name="keywords" content="Java">
+  <meta name="description" content="快速排序快速排序（Quicksort)是对冒泡排序的一种改进。基本思想是：通过一趟排序将要排序的数据分为独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按照此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到所有数据变成有序序列。">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java中try catch finally语句中含有return语句的执行情况">
-<meta property="og:url" content="http://yoursite.com/2019/09/11/Java中try-catch-finally语句中含有return语句的执行情况/index.html">
+<meta property="og:title" content="快速排序">
+<meta property="og:url" content="http://yoursite.com/2019/09/17/快速排序/index.html">
 <meta property="og:site_name" content="TimeSilence">
-<meta property="og:description" content="网上查阅找到的，感觉总结到位：），原文点这里对于含有return语句的情况，可以简单地总结如下： try语句在返回前，将其他所有的操作执行完，保留好要返回的值，而后转入执行finally中的语句，而后分为以下三种情况：    情况一：如果finally中有return语句，则会将try中的return语句”覆盖“掉，直接执行finally中的return语句，得到返回值，这样便无法得到try之前保">
+<meta property="og:description" content="快速排序快速排序（Quicksort)是对冒泡排序的一种改进。基本思想是：通过一趟排序将要排序的数据分为独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按照此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到所有数据变成有序序列。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-11T03:10:56.674Z">
+<meta property="og:updated_time" content="2019-09-17T15:10:40.407Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java中try catch finally语句中含有return语句的执行情况">
-<meta name="twitter:description" content="网上查阅找到的，感觉总结到位：），原文点这里对于含有return语句的情况，可以简单地总结如下： try语句在返回前，将其他所有的操作执行完，保留好要返回的值，而后转入执行finally中的语句，而后分为以下三种情况：    情况一：如果finally中有return语句，则会将try中的return语句”覆盖“掉，直接执行finally中的return语句，得到返回值，这样便无法得到try之前保">
+<meta name="twitter:title" content="快速排序">
+<meta name="twitter:description" content="快速排序快速排序（Quicksort)是对冒泡排序的一种改进。基本思想是：通过一趟排序将要排序的数据分为独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按照此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到所有数据变成有序序列。">
   
     <link rel="alternative" href="/atom.xml" title="TimeSilence" type="application/atom+xml">
   
@@ -257,11 +257,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Java中try-catch-finally语句中含有return语句的执行情况" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-快速排序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/09/11/Java中try-catch-finally语句中含有return语句的执行情况/" class="article-date">
-      <time datetime="2019-09-11T02:48:47.000Z" itemprop="datePublished">2019-09-11</time>
+      <a href="/2019/09/17/快速排序/" class="article-date">
+      <time datetime="2019-09-17T15:06:49.000Z" itemprop="datePublished">2019-09-17</time>
 </a>
 
     </div>
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Java中try catch finally语句中含有return语句的执行情况
+      快速排序
     </h1>
   
 
@@ -284,10 +284,14 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+    </div>
+
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -297,14 +301,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>网上查阅找到的，感觉总结到位：），原文<a href="http://blog.csdn.net/ns_code/article/details/17485221" target="_blank" rel="noopener">点这里</a><br>对于含有return语句的情况，可以简单地总结如下：</p>
-<pre><code>try语句在返回前，将其他所有的操作执行完，保留好要返回的值，而后转入执行finally中的语句，而后分为以下三种情况：
-</code></pre><p>   情况一：如果finally中有return语句，则会将try中的return语句”覆盖“掉，直接执行finally中的return语句，得到返回值，这样便无法得到try之前保留好的返回值。</p>
-<p>   情况二：如果finally中没有return语句，也没有改变要返回值，则执行完finally中的语句后，会接着执行try中的return语句，返回之前保留的值。</p>
-<p>   情况三：如果finally中没有return语句，但是改变了要返回的值，这里有点类似与引用传递和值传递的区别，分以下两种情况：</p>
-<pre><code>1）如果return的数据是基本数据类型或文本字符串，则在finally中对该基本数据的改变不起作用，try中的return语句依然会返回进入finally块之前保留的值。
-
-2）如果return的数据是引用数据类型，而在finally中对该引用数据类型的属性值的改变起作用，try中的return语句返回的就是在finally中改变后的该属性的值。
+        <p>快速排序<br>快速排序（Quicksort)是对冒泡排序的一种改进。基本思想是：通过一趟排序将要排序的数据分为独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按照此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到所有数据变成有序序列。<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">package sort;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class QuickSort &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] arr= &#123;23,445,2,43,55,12,65,666,0&#125;;</span><br><span class="line">		quickSort(arr, 0, arr.length-1);</span><br><span class="line">		System.out.println(<span class="string">"arr="</span>+Arrays.toString(arr));</span><br><span class="line">	&#125;</span><br><span class="line">	public static void quickSort(int[] arr,int left,int right) &#123;</span><br><span class="line">		int l=left;</span><br><span class="line">		int r=right;</span><br><span class="line">		int pivot=arr[(l+r)/2];</span><br><span class="line">		int temp=0;</span><br><span class="line">		<span class="keyword">while</span>(l&lt;r) &#123;</span><br><span class="line">			<span class="keyword">while</span>(arr[l]&lt;pivot) &#123;</span><br><span class="line">				l+=1;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">while</span>(arr[r]&gt;pivot) &#123;</span><br><span class="line">				r-=1;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(l&gt;=r) &#123;</span><br><span class="line">				<span class="built_in">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			temp=arr[l];</span><br><span class="line">			arr[l]=arr[r];</span><br><span class="line">			arr[r]=temp;</span><br><span class="line">			//如果交换完后，发现arr[l]==pivot,r--</span><br><span class="line">			<span class="keyword">if</span>(arr[l]==pivot) &#123;</span><br><span class="line">				r-=1;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(arr[r]==pivot) &#123;</span><br><span class="line">				l+=1;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		//如果l==r,必须了l++,r--,否则出现栈溢出</span><br><span class="line">		<span class="keyword">if</span>(l==r) &#123;</span><br><span class="line">			l+=1;</span><br><span class="line">			r-=1;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(left&lt;r) &#123;</span><br><span class="line">			quickSort(arr, left, r);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(right&gt;l) &#123;</span><br><span class="line">			quickSort(arr, l, right);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>output:</p>
+<pre><code>arr=[0, 2, 12, 23, 43, 55, 65, 445, 666]
 </code></pre>
       
     </div>
@@ -313,13 +312,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/09/11/Java中try-catch-finally语句中含有return语句的执行情况/">Java中try catch finally语句中含有return语句的执行情况</a></p>
+        <p><span>本文标题:</span><a href="/2019/09/17/快速排序/">快速排序</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TimeSilence 的个人博客">TimeSilence</a></p>
-        <p><span>发布时间:</span>2019年09月11日 - 10时48分</p>
-        <p><span>最后更新:</span>2019年09月11日 - 11时10分</p>
+        <p><span>发布时间:</span>2019年09月17日 - 23时06分</p>
+        <p><span>最后更新:</span>2019年09月17日 - 23时10分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/09/11/Java中try-catch-finally语句中含有return语句的执行情况/" title="Java中try catch finally语句中含有return语句的执行情况">http://yoursite.com/2019/09/11/Java中try-catch-finally语句中含有return语句的执行情况/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/09/11/Java中try-catch-finally语句中含有return语句的执行情况/　　作者: TimeSilence" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/09/17/快速排序/" title="快速排序">http://yoursite.com/2019/09/17/快速排序/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/09/17/快速排序/　　作者: TimeSilence" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -330,18 +329,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/09/11/选项排序/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          选项排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/11/冒泡排序/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">冒泡排序</div>
+    <a href="/2019/09/12/希尔排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">希尔排序</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -414,13 +404,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/09/11/选项排序/" title="上一篇: 选项排序">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/09/11/冒泡排序/" title="下一篇: 冒泡排序">
+            <a href="/2019/09/12/希尔排序/" title="下一篇: 希尔排序">
                 <i class="fa fa-angle-right"></i>
             </a>
         
