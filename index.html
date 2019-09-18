@@ -257,6 +257,73 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-GET和POST区别" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/09/18/GET和POST区别/" class="article-date">
+      <time datetime="2019-09-18T08:30:19.000Z" itemprop="datePublished">2019-09-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/18/GET和POST区别/">GET和POST区别</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>GET和POST<br>查阅资料后，GET和POST直观的区别有以下：<br>1，GET请求的数据会附在URL之后，以 ? 分割URL和传输数据，参数之间以&amp;相连，<br>POST把提交的数据则放置在请求体中。<br>2，GET没有POST安全，原因是GET参数直接显示在URL中。<br>还有就是w3schools中也说：</p>
+<pre><code>1）    GET历史参数保留在浏览器历史中。POST参数不会保存在浏览器历史中。
+2）    与 POST 相比，GET 的安全性较差，因为所发送的数据是 URL 的一部分。在发送密码或其他敏感信息时绝不要使用 GET ！POST 比 GET
+      更安全，因为参数不会被保存在浏览器历史或 web 服务器日志中。
+</code></pre><p>3，GET请求在URL中传送的参数是有长度限制的，而POST是没有的。<br>w3schools中说：</p>
+<pre><code>GET对数据长度有限制，当发送数据时，GET 方法向 URL 添加数据；URL 的长度是受限制的（URL 的最大长度是 2048 个字符）。POST无限制。
+</code></pre><p>网上碰到一篇文章<a href="https://www.oschina.net/news/77354/http-get-post-different" target="_blank" rel="noopener">99%的人都理解错了HTTP中GET与POST的区别</a><br>里边提到GET和POST还有一个重大区别：</p>
+<pre><code>GET产生一个TCP数据包；POST产生两个TCP数据包。
+即对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；
+而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok（返回数据）。
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-归并排序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -879,77 +946,6 @@
       
         <p class="article-more-link">
           <a href="/2019/09/07/迷宫问题（递归）/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-前缀，中缀，后缀表达式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/09/06/前缀，中缀，后缀表达式/" class="article-date">
-      <time datetime="2019-09-06T02:48:48.000Z" itemprop="datePublished">2019-09-06</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/06/前缀，中缀，后缀表达式/">前缀，中缀，后缀表达式</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>前缀，中缀，后缀表达式</p>
-<p>前缀表达式（波兰表达式）<br>1.前缀表达式又称为波兰式，前缀表达式的运算符位于操作数之前<br>2.如：(3+4)<em>5-6对应的前缀表达式为- </em> + 3 4 5 6<br>
-          
-      
-    </p></div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/09/06/前缀，中缀，后缀表达式/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
