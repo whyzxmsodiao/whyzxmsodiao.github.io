@@ -7,20 +7,20 @@
   
   
   
-  <title>STL之string | TimeSilence</title>
+  <title>QT笔记_02 | TimeSilence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为了建立数据结构和算法的一套标准,便诞生了STL(Standard Template Library,标准模板库)。STL 从广义上分为: 容器(container) 算法(algorithm) 迭代器(iterator)。容器和算法之间通过迭代器进行无缝连接。STL大体分为六大组件，分别是:容器、算法、迭代器、仿函数、适配器（配接器）、空间配置器。">
-<meta name="keywords" content="STL">
+  <meta name="description" content="常用控件123456789101112131415161718192021222324252627282930313233343536373839//文字控件QLabel* label = new QLabel;label-&amp;gt;setParent(this);label-&amp;gt;move(0,100);label-&amp;gt;setText(&quot;hahaha&quot;);label-&amp;gt;setFont(">
+<meta name="keywords" content="QT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="STL之string">
-<meta property="og:url" content="http://yoursite.com/2020/06/04/STL之string/index.html">
+<meta property="og:title" content="QT笔记_02">
+<meta property="og:url" content="http://yoursite.com/2021/01/31/QT笔记-02/index.html">
 <meta property="og:site_name" content="TimeSilence">
-<meta property="og:description" content="为了建立数据结构和算法的一套标准,便诞生了STL(Standard Template Library,标准模板库)。STL 从广义上分为: 容器(container) 算法(algorithm) 迭代器(iterator)。容器和算法之间通过迭代器进行无缝连接。STL大体分为六大组件，分别是:容器、算法、迭代器、仿函数、适配器（配接器）、空间配置器。">
+<meta property="og:description" content="常用控件123456789101112131415161718192021222324252627282930313233343536373839//文字控件QLabel* label = new QLabel;label-&amp;gt;setParent(this);label-&amp;gt;move(0,100);label-&amp;gt;setText(&quot;hahaha&quot;);label-&amp;gt;setFont(">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-04T10:33:48.873Z">
+<meta property="og:updated_time" content="2021-01-31T14:51:54.655Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="STL之string">
-<meta name="twitter:description" content="为了建立数据结构和算法的一套标准,便诞生了STL(Standard Template Library,标准模板库)。STL 从广义上分为: 容器(container) 算法(algorithm) 迭代器(iterator)。容器和算法之间通过迭代器进行无缝连接。STL大体分为六大组件，分别是:容器、算法、迭代器、仿函数、适配器（配接器）、空间配置器。">
+<meta name="twitter:title" content="QT笔记_02">
+<meta name="twitter:description" content="常用控件123456789101112131415161718192021222324252627282930313233343536373839//文字控件QLabel* label = new QLabel;label-&amp;gt;setParent(this);label-&amp;gt;move(0,100);label-&amp;gt;setText(&quot;hahaha&quot;);label-&amp;gt;setFont(">
   
     <link rel="alternative" href="/atom.xml" title="TimeSilence" type="application/atom+xml">
   
@@ -257,11 +257,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-STL之string" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-QT笔记-02" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/06/04/STL之string/" class="article-date">
-      <time datetime="2020-06-04T10:06:32.000Z" itemprop="datePublished">2020-06-04</time>
+      <a href="/2021/01/31/QT笔记-02/" class="article-date">
+      <time datetime="2021-01-31T11:34:35.000Z" itemprop="datePublished">2021-01-31</time>
 </a>
 
     </div>
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      STL之string
+      QT笔记_02
     </h1>
   
 
@@ -287,7 +287,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QT/">QT</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -297,92 +297,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>为了建立数据结构和算法的一套标准,便诞生了STL(Standard Template Library,标准模板库)。<br>STL 从广义上分为: 容器(container) 算法(algorithm) 迭代器(iterator)。<br>容器和算法之间通过迭代器进行无缝连接。<br>STL大体分为六大组件，分别是:容器、算法、迭代器、仿函数、适配器（配接器）、空间配置器。<br><a id="more"></a><br>1.string基本概念</p>
-<pre><code>本质：
-string是C++风格的字符串，而string本质上是一个类
-string和char * 区别：
-char * 是一个指针
-string是一个类，类内部封装了char*，管理这个字符串，是一个char*型的容器。
-特点：
-string 类内部封装了很多成员方法
-例如：查找find，拷贝copy，删除delete 替换replace，插入insert
-string管理char*所分配的内存，不用担心复制越界和取值越界等，由类内部进行负责
-</code></pre><p>2.string构造函数</p>
-<pre><code>构造函数原型：
-string(); //创建一个空的字符串 例如: string str;
-string(const char* s); //使用字符串s初始化
-string(const string&amp; str); //使用一个string对象初始化另一个string对象
-string(int n, char c); //使用n个字符c初始化
-</code></pre><p>3.string赋值操作</p>
-<pre><code>功能描述：
-给string字符串进行赋值
-赋值的函数原型：
-string&amp; operator=(const char* s); //char*类型字符串 赋值给当前的字符串
-string&amp; operator=(const string &amp;s); //把字符串s赋给当前的字符串
-string&amp; operator=(char c); //字符赋值给当前的字符串
-string&amp; assign(const char *s); //把字符串s赋给当前的字符串
-string&amp; assign(const char *s, int n); //把字符串s的前n个字符赋给当前的字符串
-string&amp; assign(const string &amp;s); //把字符串s赋给当前字符串
-string&amp; assign(int n, char c); //用n个字符c赋给当前字符串
-string的赋值方式很多， operator= 这种方式是比较实用的
-</code></pre><p>4.string字符串拼接</p>
-<pre><code>功能描述：
-实现在字符串末尾拼接字符串
-函数原型：
-string&amp; operator+=(const char* str); //重载+=操作符
-string&amp; operator+=(const char c); //重载+=操作符
-string&amp; operator+=(const string&amp; str); //重载+=操作符
-string&amp; append(const char *s); //把字符串s连接到当前字符串结尾
-string&amp; append(const char *s, int n); //把字符串s的前n个字符连接到当前字符串结尾
-string&amp; append(const string &amp;s); //同operator+=(const string&amp; str)
-string&amp; append(const string &amp;s, int pos, int n); //字符串s中从pos开始的n个字符连接到字符串结尾
-</code></pre><p>5.string查找和替换</p>
-<pre><code>功能描述：
-查找：查找指定字符串是否存在
-替换：在指定的位置替换字符串
-函数原型：
-int find(const string&amp; str, int pos = 0) const; //查找str第一次出现位置,从pos开始查找
-int find(const char* s, int pos = 0) const; //查找s第一次出现位置,从pos开始查找
-int find(const char* s, int pos, int n) const; //从pos位置查找s的前n个字符第一次位置
-int find(const char c, int pos = 0) const; //查找字符c第一次出现位置
-int rfind(const string&amp; str, int pos = npos) const; //查找str最后一次位置,从pos开始查找
-int rfind(const char* s, int pos = npos) const; //查找s最后一次出现位置,从pos开始查找
-int rfind(const char* s, int pos, int n) const; //从pos查找s的前n个字符最后一次位置
-int rfind(const char c, int pos = 0) const; //查找字符c最后一次出现位置
-string&amp; replace(int pos, int n, const string&amp; str); //替换从pos开始n个字符为字符串str
-string&amp; replace(int pos, int n,const char* s); //替换从pos开始的n个字符为字符串s
-find查找是从左往后，rfind从右往左
-find找到字符串后返回查找的第一个字符位置，找不到返回-1
-replace在替换时，要指定从哪个位置起，多少个字符，替换成什么样的字符串
-</code></pre><p>6.string字符串比较</p>
-<pre><code>功能描述：
-字符串之间的比较
-比较方式：
-字符串比较是按字符的ASCII码进行对比
-= 返回 0
-&gt; 返回 1
-&lt; 返回 -1
-函数原型：
-int compare(const string &amp;s) const; //与字符串s比较
-int compare(const char *s) const; //与字符串s比较
-</code></pre><p>7.string字符存取</p>
-<pre><code>string中单个字符存取方式有两种
-char&amp; operator[](int n); //通过[]方式取字符
-char&amp; at(int n); //通过at方法获取字符
-</code></pre><p>8.string插入和删除</p>
-<pre><code>功能描述：
-对string字符串进行插入和删除字符操作
-函数原型：
-string&amp; insert(int pos, const char* s); //插入字符串
-string&amp; insert(int pos, const string&amp; str); //插入字符串
-string&amp; insert(int pos, int n, char c); //在指定位置插入n个字符c
-string&amp; erase(int pos, int n = npos); //删除从Pos开始的n个字符
-</code></pre><p>9.string子串</p>
-<pre><code>功能描述：
-从字符串中获取想要的子串
-函数原型：
-string substr(int pos = 0, int n = npos) const; //返回由pos开始的n个字符组成的字符串
-</code></pre>
+        <p>常用控件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">//文字控件</span><br><span class="line">QLabel* label = new QLabel;</span><br><span class="line">label-&gt;setParent(this);</span><br><span class="line">label-&gt;move(0,100);</span><br><span class="line">label-&gt;setText(<span class="string">"hahaha"</span>);</span><br><span class="line">label-&gt;setFont(QFont(<span class="string">"楷体"</span>),20,20,1);</span><br><span class="line">//滑动条控件</span><br><span class="line">QSlider* slider = new QSlider;</span><br><span class="line">slider-&gt;setParent(this);</span><br><span class="line">slider-&gt;move(300,100);</span><br><span class="line">slider-&gt;setValue(0);</span><br><span class="line">//通过滑动条改变字体大小</span><br><span class="line">connect(slider,&amp;QSlider::valueChanged,[label](int _value)&#123;</span><br><span class="line">	label-&gt;setFont(QFont(QFont(<span class="string">"楷体"</span>,_value,10,1)));</span><br><span class="line">	label-&gt;resize(500,_value);</span><br><span class="line">&#125;);</span><br><span class="line">//进度条控件</span><br><span class="line">QProgressBar* proBar = new QProgressBar;</span><br><span class="line">proBar-&gt;setParent(this);</span><br><span class="line">proBar-&gt;move(0,200);</span><br><span class="line">proBar-&gt;resize(this-&gt;size().width(),20);</span><br><span class="line">proBar-&gt;setValue(50);</span><br><span class="line">//通过滑动条控制进度条</span><br><span class="line">connect(slider,&amp;QSlider::valueChanged,[proBar](int _val)&#123;</span><br><span class="line">	proBar-&gt;setValue(_val);</span><br><span class="line">&#125;);</span><br><span class="line">//文本编辑框</span><br><span class="line">QTextEdit* edit = new QTextEdit;</span><br><span class="line">edit-&gt;move(0,300);</span><br><span class="line">edit-&gt;resize(200,500);</span><br><span class="line">edit-&gt;setParent(this);</span><br><span class="line">edit-&gt;setFontUnderline(1);  //添加下划线</span><br><span class="line">edit-&gt;setFontPointSize(qreal(20.0)); //设置文字大小</span><br><span class="line">edit-&gt;setText(<span class="string">"dadada"</span>);  //代码里设置文本内容，添加文本需在样式设置之后执行</span><br><span class="line">//通过编辑文本框改变Label文本类容</span><br><span class="line">connect(edit,&amp;QTextEdit::textChanged,[label]()&#123;</span><br><span class="line">	QString text = edit-&gt;toPlainText();</span><br><span class="line">	label-&gt;setText(text);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>自定义槽：<br>1、有函数声明和实现<br>2、返回类型为void<br>3、槽函数可以带参，可以重载（槽函数参数是从信号来的）</p>
+<p>//信号定义<br>signals:<br>    //自定义信号</p>
+<p>public slots://槽函数定义<br>    //自定义槽函数</p>
+<p>XML（可扩展标记语言）文件操作<br>HTML（超文本标记语言）和XML区别：<br>    1、xml标签和属性可自定义可扩展 html标签和属性固定不可自定义<br>    2、xml注重在数据的本身作为数据承载，一个标签的定义就是为了承载一个数据<br>      html注重的是数据的显示方式，一个标签的使用为了页面到结构化和需求<br>    单标记<br>    &lt;标签名 属性名 = “属性值”/&gt;<br>    双标记<br>    &lt;标签名 属性名 = “属性值”&gt;<br>    …<br>    &lt;/标签名&gt;</p>
+<p>Qt操作xml文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;QtXml&gt; </span></span><br><span class="line">//xml写入</span><br><span class="line">void MyTest::writeBtnClicked()</span><br><span class="line">&#123;</span><br><span class="line">	QDomDocument doc; //文档对象，可以保存文件</span><br><span class="line">	QDomElement root = doc.createElement(<span class="string">"root"</span>); //文档对象创建一个标签，里面有内容为双标签，没有为单标签</span><br><span class="line">	doc.appendChild(root); //root标签添加到文档对象</span><br><span class="line">	auto hero = doc.createElement(<span class="string">"hero"</span>);</span><br><span class="line">	root.appendChild(hero);</span><br><span class="line"></span><br><span class="line">	//为标签添加属性</span><br><span class="line">	hero.setAttribute(<span class="string">"id"</span>,<span class="string">"10000"</span>);</span><br><span class="line">	quto name = doc.createElement(<span class="string">"Name"</span>);</span><br><span class="line">	quto desc = doc.createElement(<span class="string">"Desc"</span>);</span><br><span class="line">	hero.appendChild(name);</span><br><span class="line">	hero.appendChild(desc);</span><br><span class="line"></span><br><span class="line">	name.appendChild(doc.createTextNode(<span class="string">"熊大"</span>)); </span><br><span class="line">	desc.appendChild(doc.createTextNode(<span class="string">"熊二"</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	QString fileName = FileDialog::getSaveFileName(this,<span class="string">"保存XML"</span>);</span><br><span class="line">	//文件对象</span><br><span class="line">	QFile file(fileName);</span><br><span class="line">	<span class="keyword">if</span>(!file.open(QIODevice::writeOnly))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	//保存文件</span><br><span class="line">	QTextStream outStream(&amp;file);  //文本流对象</span><br><span class="line">	doc.save(outStream,4);  //4代表缩进几个空格</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct Hero</span><br><span class="line">&#123;</span><br><span class="line">	int id;</span><br><span class="line">	QString name;</span><br><span class="line">	QString desc;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void MyTest::readBtnClicked()</span><br><span class="line">&#123;</span><br><span class="line">	//读取测试</span><br><span class="line">	QFile file(<span class="string">"./testload.xml"</span>);</span><br><span class="line">	<span class="keyword">if</span>(!file.open(QIODevice::ReadOnly))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	QVector&lt;Hero&gt; vec; //数据承载容器</span><br><span class="line">	//进行xml数据解析</span><br><span class="line">	QDomDocument doc;</span><br><span class="line">	doc.setContent(&amp;file); //设置xml文档内容为文件对象</span><br><span class="line">	//查找第一个子标签root</span><br><span class="line">	auto root = doc.firstChildElement(<span class="string">"root"</span>);</span><br><span class="line">	//root中找到第一个子标签hero</span><br><span class="line">	auto root = root.firstChildElement(<span class="string">"Hero"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(hero.isNull())</span><br><span class="line">	&#123;</span><br><span class="line">		//进行标签数据解析</span><br><span class="line">		Hero heroInfo;</span><br><span class="line">		heroInfo.id=hero.attribute(<span class="string">"id"</span>).toInt();	</span><br><span class="line">		heroInfo.name = hero.firstChildElement(<span class="string">"name"</span>).text();</span><br><span class="line">		heroInfo.desc = hero.firstChildElement(<span class="string">"Desc"</span>).text();</span><br><span class="line">		vec.append(heroInfo);</span><br><span class="line">		//读取下一个hero标签</span><br><span class="line">		hero = hero.nextSiblingElement(<span class="string">"Hero"</span>); //Sibling为兄弟姐妹</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//显示到UI</span><br><span class="line">QString contents=<span class="string">""</span>;</span><br><span class="line"><span class="keyword">for</span>(Hero info:vec)</span><br><span class="line">&#123;</span><br><span class="line">	contents+=<span class="string">"ID:"</span>+QString::number(info.id);</span><br><span class="line">	contents+=<span class="string">"Name:"</span>+info.name;</span><br><span class="line">	contents+=<span class="string">"Desc:"</span>+info.desc;</span><br><span class="line">&#125;</span><br><span class="line">ui-&gt;textEdit-&gt;setText();</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -390,13 +312,13 @@ string substr(int pos = 0, int n = npos) const; //返回由pos开始的n个字�
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/06/04/STL之string/">STL之string</a></p>
+        <p><span>本文标题:</span><a href="/2021/01/31/QT笔记-02/">QT笔记_02</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TimeSilence 的个人博客">TimeSilence</a></p>
-        <p><span>发布时间:</span>2020年06月04日 - 18时06分</p>
-        <p><span>最后更新:</span>2020年06月04日 - 18时33分</p>
+        <p><span>发布时间:</span>2021年01月31日 - 19时34分</p>
+        <p><span>最后更新:</span>2021年01月31日 - 22时51分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/06/04/STL之string/" title="STL之string">http://yoursite.com/2020/06/04/STL之string/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/06/04/STL之string/　　作者: TimeSilence" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2021/01/31/QT笔记-02/" title="QT笔记_02">http://yoursite.com/2021/01/31/QT笔记-02/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2021/01/31/QT笔记-02/　　作者: TimeSilence" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -407,18 +329,9 @@ string substr(int pos = 0, int n = npos) const; //返回由pos开始的n个字�
 
 <nav id="article-nav">
   
-    <a href="/2021/01/31/QT学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          QT学习笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/22/基数排序/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">基数排序</div>
+    <a href="/2021/01/31/QT学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">QT学习笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -491,13 +404,11 @@ string substr(int pos = 0, int n = npos) const; //返回由pos开始的n个字�
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2021/01/31/QT学习笔记/" title="上一篇: QT学习笔记">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/09/22/基数排序/" title="下一篇: 基数排序">
+            <a href="/2021/01/31/QT学习笔记/" title="下一篇: QT学习笔记">
                 <i class="fa fa-angle-right"></i>
             </a>
         

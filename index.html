@@ -188,7 +188,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java-EE/" style="font-size: 10px;">Java EE</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/javaee/" style="font-size: 10px;">javaee</a> <a href="/tags/jdbc/" style="font-size: 10px;">jdbc</a> <a href="/tags/作品/" style="font-size: 10px;">作品</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/遇到的问题/" style="font-size: 15px;">遇到的问题</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
+                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java-EE/" style="font-size: 10px;">Java EE</a> <a href="/tags/QT/" style="font-size: 10px;">QT</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/javaee/" style="font-size: 10px;">javaee</a> <a href="/tags/jdbc/" style="font-size: 10px;">jdbc</a> <a href="/tags/作品/" style="font-size: 10px;">作品</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/遇到的问题/" style="font-size: 15px;">遇到的问题</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
                     </div>
                 </section>
                 
@@ -256,6 +256,72 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-QT笔记-02" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/01/31/QT笔记-02/" class="article-date">
+      <time datetime="2021-01-31T11:34:35.000Z" itemprop="datePublished">2021-01-31</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/31/QT笔记-02/">QT笔记_02</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>常用控件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">//文字控件</span><br><span class="line">QLabel* label = new QLabel;</span><br><span class="line">label-&gt;setParent(this);</span><br><span class="line">label-&gt;move(0,100);</span><br><span class="line">label-&gt;setText(<span class="string">"hahaha"</span>);</span><br><span class="line">label-&gt;setFont(QFont(<span class="string">"楷体"</span>),20,20,1);</span><br><span class="line">//滑动条控件</span><br><span class="line">QSlider* slider = new QSlider;</span><br><span class="line">slider-&gt;setParent(this);</span><br><span class="line">slider-&gt;move(300,100);</span><br><span class="line">slider-&gt;setValue(0);</span><br><span class="line">//通过滑动条改变字体大小</span><br><span class="line">connect(slider,&amp;QSlider::valueChanged,[label](int _value)&#123;</span><br><span class="line">	label-&gt;setFont(QFont(QFont(<span class="string">"楷体"</span>,_value,10,1)));</span><br><span class="line">	label-&gt;resize(500,_value);</span><br><span class="line">&#125;);</span><br><span class="line">//进度条控件</span><br><span class="line">QProgressBar* proBar = new QProgressBar;</span><br><span class="line">proBar-&gt;setParent(this);</span><br><span class="line">proBar-&gt;move(0,200);</span><br><span class="line">proBar-&gt;resize(this-&gt;size().width(),20);</span><br><span class="line">proBar-&gt;setValue(50);</span><br><span class="line">//通过滑动条控制进度条</span><br><span class="line">connect(slider,&amp;QSlider::valueChanged,[proBar](int _val)&#123;</span><br><span class="line">	proBar-&gt;setValue(_val);</span><br><span class="line">&#125;);</span><br><span class="line">//文本编辑框</span><br><span class="line">QTextEdit* edit = new QTextEdit;</span><br><span class="line">edit-&gt;move(0,300);</span><br><span class="line">edit-&gt;resize(200,500);</span><br><span class="line">edit-&gt;setParent(this);</span><br><span class="line">edit-&gt;setFontUnderline(1);  //添加下划线</span><br><span class="line">edit-&gt;setFontPointSize(qreal(20.0)); //设置文字大小</span><br><span class="line">edit-&gt;setText(<span class="string">"dadada"</span>);  //代码里设置文本内容，添加文本需在样式设置之后执行</span><br><span class="line">//通过编辑文本框改变Label文本类容</span><br><span class="line">connect(edit,&amp;QTextEdit::textChanged,[label]()&#123;</span><br><span class="line">	QString text = edit-&gt;toPlainText();</span><br><span class="line">	label-&gt;setText(text);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QT/">QT</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2021/01/31/QT笔记-02/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-QT学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -877,75 +943,6 @@
         <p class="article-more-link">
           <a href="/2019/09/11/选项排序/#more">查看更多 >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Java中try-catch-finally语句中含有return语句的执行情况" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/09/11/Java中try-catch-finally语句中含有return语句的执行情况/" class="article-date">
-      <time datetime="2019-09-11T02:48:47.000Z" itemprop="datePublished">2019-09-11</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/11/Java中try-catch-finally语句中含有return语句的执行情况/">Java中try catch finally语句中含有return语句的执行情况</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>网上查阅找到的，感觉总结到位：），原文<a href="http://blog.csdn.net/ns_code/article/details/17485221" target="_blank" rel="noopener">点这里</a><br>对于含有return语句的情况，可以简单地总结如下：</p>
-<pre><code>try语句在返回前，将其他所有的操作执行完，保留好要返回的值，而后转入执行finally中的语句，而后分为以下三种情况：
-</code></pre><p>   情况一：如果finally中有return语句，则会将try中的return语句”覆盖“掉，直接执行finally中的return语句，得到返回值，这样便无法得到try之前保留好的返回值。</p>
-<p>   情况二：如果finally中没有return语句，也没有改变要返回值，则执行完finally中的语句后，会接着执行try中的return语句，返回之前保留的值。</p>
-<p>   情况三：如果finally中没有return语句，但是改变了要返回的值，这里有点类似与引用传递和值传递的区别，分以下两种情况：</p>
-<pre><code>1）如果return的数据是基本数据类型或文本字符串，则在finally中对该基本数据的改变不起作用，try中的return语句依然会返回进入finally块之前保留的值。
-
-2）如果return的数据是引用数据类型，而在finally中对该引用数据类型的属性值的改变起作用，try中的return语句返回的就是在finally中改变后的该属性的值。
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>
