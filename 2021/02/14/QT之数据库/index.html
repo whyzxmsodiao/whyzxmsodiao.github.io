@@ -7,20 +7,20 @@
   
   
   
-  <title>STL之string | TimeSilence</title>
+  <title>QT之数据库 | TimeSilence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为了建立数据结构和算法的一套标准,便诞生了STL(Standard Template Library,标准模板库)。STL 从广义上分为: 容器(container) 算法(algorithm) 迭代器(iterator)。容器和算法之间通过迭代器进行无缝连接。STL大体分为六大组件，分别是:容器、算法、迭代器、仿函数、适配器（配接器）、空间配置器。">
-<meta name="keywords" content="STL">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637//打印QT支持的数据库驱动qDebug()&amp;lt;&amp;lt;QSqlDatabase::drivers();//添加MYSQL数据库QSqlDatabase db=QSqlDatabase::addDatabase(&quot;QMYSQL&quot;);//连接数据库db.setHost">
+<meta name="keywords" content="QT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="STL之string">
-<meta property="og:url" content="http://yoursite.com/2020/06/04/STL之string/index.html">
+<meta property="og:title" content="QT之数据库">
+<meta property="og:url" content="http://yoursite.com/2021/02/14/QT之数据库/index.html">
 <meta property="og:site_name" content="TimeSilence">
-<meta property="og:description" content="为了建立数据结构和算法的一套标准,便诞生了STL(Standard Template Library,标准模板库)。STL 从广义上分为: 容器(container) 算法(algorithm) 迭代器(iterator)。容器和算法之间通过迭代器进行无缝连接。STL大体分为六大组件，分别是:容器、算法、迭代器、仿函数、适配器（配接器）、空间配置器。">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637//打印QT支持的数据库驱动qDebug()&amp;lt;&amp;lt;QSqlDatabase::drivers();//添加MYSQL数据库QSqlDatabase db=QSqlDatabase::addDatabase(&quot;QMYSQL&quot;);//连接数据库db.setHost">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-04T10:33:48.873Z">
+<meta property="og:updated_time" content="2021-02-14T05:37:46.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="STL之string">
-<meta name="twitter:description" content="为了建立数据结构和算法的一套标准,便诞生了STL(Standard Template Library,标准模板库)。STL 从广义上分为: 容器(container) 算法(algorithm) 迭代器(iterator)。容器和算法之间通过迭代器进行无缝连接。STL大体分为六大组件，分别是:容器、算法、迭代器、仿函数、适配器（配接器）、空间配置器。">
+<meta name="twitter:title" content="QT之数据库">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637//打印QT支持的数据库驱动qDebug()&amp;lt;&amp;lt;QSqlDatabase::drivers();//添加MYSQL数据库QSqlDatabase db=QSqlDatabase::addDatabase(&quot;QMYSQL&quot;);//连接数据库db.setHost">
   
     <link rel="alternative" href="/atom.xml" title="TimeSilence" type="application/atom+xml">
   
@@ -257,11 +257,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-STL之string" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-QT之数据库" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/06/04/STL之string/" class="article-date">
-      <time datetime="2020-06-04T10:06:32.000Z" itemprop="datePublished">2020-06-04</time>
+      <a href="/2021/02/14/QT之数据库/" class="article-date">
+      <time datetime="2021-02-14T04:54:15.000Z" itemprop="datePublished">2021-02-14</time>
 </a>
 
     </div>
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      STL之string
+      QT之数据库
     </h1>
   
 
@@ -287,7 +287,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QT/">QT</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -297,92 +297,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>为了建立数据结构和算法的一套标准,便诞生了STL(Standard Template Library,标准模板库)。<br>STL 从广义上分为: 容器(container) 算法(algorithm) 迭代器(iterator)。<br>容器和算法之间通过迭代器进行无缝连接。<br>STL大体分为六大组件，分别是:容器、算法、迭代器、仿函数、适配器（配接器）、空间配置器。<br><a id="more"></a><br>1.string基本概念</p>
-<pre><code>本质：
-string是C++风格的字符串，而string本质上是一个类
-string和char * 区别：
-char * 是一个指针
-string是一个类，类内部封装了char*，管理这个字符串，是一个char*型的容器。
-特点：
-string 类内部封装了很多成员方法
-例如：查找find，拷贝copy，删除delete 替换replace，插入insert
-string管理char*所分配的内存，不用担心复制越界和取值越界等，由类内部进行负责
-</code></pre><p>2.string构造函数</p>
-<pre><code>构造函数原型：
-string(); //创建一个空的字符串 例如: string str;
-string(const char* s); //使用字符串s初始化
-string(const string&amp; str); //使用一个string对象初始化另一个string对象
-string(int n, char c); //使用n个字符c初始化
-</code></pre><p>3.string赋值操作</p>
-<pre><code>功能描述：
-给string字符串进行赋值
-赋值的函数原型：
-string&amp; operator=(const char* s); //char*类型字符串 赋值给当前的字符串
-string&amp; operator=(const string &amp;s); //把字符串s赋给当前的字符串
-string&amp; operator=(char c); //字符赋值给当前的字符串
-string&amp; assign(const char *s); //把字符串s赋给当前的字符串
-string&amp; assign(const char *s, int n); //把字符串s的前n个字符赋给当前的字符串
-string&amp; assign(const string &amp;s); //把字符串s赋给当前字符串
-string&amp; assign(int n, char c); //用n个字符c赋给当前字符串
-string的赋值方式很多， operator= 这种方式是比较实用的
-</code></pre><p>4.string字符串拼接</p>
-<pre><code>功能描述：
-实现在字符串末尾拼接字符串
-函数原型：
-string&amp; operator+=(const char* str); //重载+=操作符
-string&amp; operator+=(const char c); //重载+=操作符
-string&amp; operator+=(const string&amp; str); //重载+=操作符
-string&amp; append(const char *s); //把字符串s连接到当前字符串结尾
-string&amp; append(const char *s, int n); //把字符串s的前n个字符连接到当前字符串结尾
-string&amp; append(const string &amp;s); //同operator+=(const string&amp; str)
-string&amp; append(const string &amp;s, int pos, int n); //字符串s中从pos开始的n个字符连接到字符串结尾
-</code></pre><p>5.string查找和替换</p>
-<pre><code>功能描述：
-查找：查找指定字符串是否存在
-替换：在指定的位置替换字符串
-函数原型：
-int find(const string&amp; str, int pos = 0) const; //查找str第一次出现位置,从pos开始查找
-int find(const char* s, int pos = 0) const; //查找s第一次出现位置,从pos开始查找
-int find(const char* s, int pos, int n) const; //从pos位置查找s的前n个字符第一次位置
-int find(const char c, int pos = 0) const; //查找字符c第一次出现位置
-int rfind(const string&amp; str, int pos = npos) const; //查找str最后一次位置,从pos开始查找
-int rfind(const char* s, int pos = npos) const; //查找s最后一次出现位置,从pos开始查找
-int rfind(const char* s, int pos, int n) const; //从pos查找s的前n个字符最后一次位置
-int rfind(const char c, int pos = 0) const; //查找字符c最后一次出现位置
-string&amp; replace(int pos, int n, const string&amp; str); //替换从pos开始n个字符为字符串str
-string&amp; replace(int pos, int n,const char* s); //替换从pos开始的n个字符为字符串s
-find查找是从左往后，rfind从右往左
-find找到字符串后返回查找的第一个字符位置，找不到返回-1
-replace在替换时，要指定从哪个位置起，多少个字符，替换成什么样的字符串
-</code></pre><p>6.string字符串比较</p>
-<pre><code>功能描述：
-字符串之间的比较
-比较方式：
-字符串比较是按字符的ASCII码进行对比
-= 返回 0
-&gt; 返回 1
-&lt; 返回 -1
-函数原型：
-int compare(const string &amp;s) const; //与字符串s比较
-int compare(const char *s) const; //与字符串s比较
-</code></pre><p>7.string字符存取</p>
-<pre><code>string中单个字符存取方式有两种
-char&amp; operator[](int n); //通过[]方式取字符
-char&amp; at(int n); //通过at方法获取字符
-</code></pre><p>8.string插入和删除</p>
-<pre><code>功能描述：
-对string字符串进行插入和删除字符操作
-函数原型：
-string&amp; insert(int pos, const char* s); //插入字符串
-string&amp; insert(int pos, const string&amp; str); //插入字符串
-string&amp; insert(int pos, int n, char c); //在指定位置插入n个字符c
-string&amp; erase(int pos, int n = npos); //删除从Pos开始的n个字符
-</code></pre><p>9.string子串</p>
-<pre><code>功能描述：
-从字符串中获取想要的子串
-函数原型：
-string substr(int pos = 0, int n = npos) const; //返回由pos开始的n个字符组成的字符串
-</code></pre>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//打印QT支持的数据库驱动</span><br><span class="line">qDebug()&lt;&lt;QSqlDatabase::drivers();</span><br><span class="line">//添加MYSQL数据库</span><br><span class="line">QSqlDatabase db=QSqlDatabase::addDatabase(<span class="string">"QMYSQL"</span>);</span><br><span class="line">//连接数据库</span><br><span class="line">db.setHostName(<span class="string">"localhost"</span>);//数据库服务器IP</span><br><span class="line">db.setUserName(<span class="string">"root"</span>);//数据库用户名</span><br><span class="line">db.setPassword(<span class="string">"123456"</span>);//数据库密码</span><br><span class="line">db.setDatabaseName(<span class="string">"Test"</span>); //使用那个数据库</span><br><span class="line">//打开数据库</span><br><span class="line"><span class="keyword">if</span>(!db.open())</span><br><span class="line">&#123;</span><br><span class="line">	QMessageBox::warning(this,<span class="string">"错误"</span>,db.lastError().text()) //包含QSqlError头文件</span><br><span class="line">	<span class="built_in">return</span>; //数据库打开失败</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#include &lt;QSqlQuery&gt; //用于对sql语句操作的类</span></span><br><span class="line">QSqlQuery query;</span><br><span class="line">query.exec(<span class="string">"select * from user"</span>);</span><br><span class="line">//批量处理</span><br><span class="line">query.prepare();</span><br><span class="line">query.addBindValue(); //往里面添加list时要是QVariantList</span><br><span class="line">query.execBatch();</span><br><span class="line"></span><br><span class="line">//开启一个事务</span><br><span class="line">QSqlDatabase::database().transaction();</span><br><span class="line">//提交</span><br><span class="line">QSqlDatabase::database().commit();</span><br><span class="line">//回滚</span><br><span class="line">QSqlDatabase::database().rollback();</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(query.next()) //遍历</span><br><span class="line">&#123;</span><br><span class="line">	//取出当前行内容</span><br><span class="line">	qDebug &lt;&lt; query.value(0).toInt(); //取第0列，按列取</span><br><span class="line">	qDebug &lt;&lt; query.value(<span class="string">"id"</span>).toInt(); //按字段名取，更直观</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -390,13 +305,13 @@ string substr(int pos = 0, int n = npos) const; //返回由pos开始的n个字�
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/06/04/STL之string/">STL之string</a></p>
+        <p><span>本文标题:</span><a href="/2021/02/14/QT之数据库/">QT之数据库</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TimeSilence 的个人博客">TimeSilence</a></p>
-        <p><span>发布时间:</span>2020年06月04日 - 18时06分</p>
-        <p><span>最后更新:</span>2020年06月04日 - 18时33分</p>
+        <p><span>发布时间:</span>2021年02月14日 - 12时54分</p>
+        <p><span>最后更新:</span>2021年02月14日 - 13时37分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/06/04/STL之string/" title="STL之string">http://yoursite.com/2020/06/04/STL之string/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/06/04/STL之string/　　作者: TimeSilence" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2021/02/14/QT之数据库/" title="QT之数据库">http://yoursite.com/2021/02/14/QT之数据库/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2021/02/14/QT之数据库/　　作者: TimeSilence" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -407,18 +322,9 @@ string substr(int pos = 0, int n = npos) const; //返回由pos开始的n个字�
 
 <nav id="article-nav">
   
-    <a href="/2021/01/31/QT学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          QT学习笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/22/基数排序/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">基数排序</div>
+    <a href="/2021/01/31/QT笔记-02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">QT笔记_02</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -491,13 +397,11 @@ string substr(int pos = 0, int n = npos) const; //返回由pos开始的n个字�
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2021/01/31/QT学习笔记/" title="上一篇: QT学习笔记">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/09/22/基数排序/" title="下一篇: 基数排序">
+            <a href="/2021/01/31/QT笔记-02/" title="下一篇: QT笔记_02">
                 <i class="fa fa-angle-right"></i>
             </a>
         

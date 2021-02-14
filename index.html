@@ -188,7 +188,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java-EE/" style="font-size: 10px;">Java EE</a> <a href="/tags/QT/" style="font-size: 10px;">QT</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/javaee/" style="font-size: 10px;">javaee</a> <a href="/tags/jdbc/" style="font-size: 10px;">jdbc</a> <a href="/tags/作品/" style="font-size: 10px;">作品</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/遇到的问题/" style="font-size: 15px;">遇到的问题</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
+                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java-EE/" style="font-size: 10px;">Java EE</a> <a href="/tags/QT/" style="font-size: 15px;">QT</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/javaee/" style="font-size: 10px;">javaee</a> <a href="/tags/jdbc/" style="font-size: 10px;">jdbc</a> <a href="/tags/作品/" style="font-size: 10px;">作品</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/遇到的问题/" style="font-size: 15px;">遇到的问题</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
                     </div>
                 </section>
                 
@@ -256,6 +256,67 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-QT之数据库" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/02/14/QT之数据库/" class="article-date">
+      <time datetime="2021-02-14T04:54:15.000Z" itemprop="datePublished">2021-02-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/14/QT之数据库/">QT之数据库</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//打印QT支持的数据库驱动</span><br><span class="line">qDebug()&lt;&lt;QSqlDatabase::drivers();</span><br><span class="line">//添加MYSQL数据库</span><br><span class="line">QSqlDatabase db=QSqlDatabase::addDatabase(<span class="string">"QMYSQL"</span>);</span><br><span class="line">//连接数据库</span><br><span class="line">db.setHostName(<span class="string">"localhost"</span>);//数据库服务器IP</span><br><span class="line">db.setUserName(<span class="string">"root"</span>);//数据库用户名</span><br><span class="line">db.setPassword(<span class="string">"123456"</span>);//数据库密码</span><br><span class="line">db.setDatabaseName(<span class="string">"Test"</span>); //使用那个数据库</span><br><span class="line">//打开数据库</span><br><span class="line"><span class="keyword">if</span>(!db.open())</span><br><span class="line">&#123;</span><br><span class="line">	QMessageBox::warning(this,<span class="string">"错误"</span>,db.lastError().text()) //包含QSqlError头文件</span><br><span class="line">	<span class="built_in">return</span>; //数据库打开失败</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#include &lt;QSqlQuery&gt; //用于对sql语句操作的类</span></span><br><span class="line">QSqlQuery query;</span><br><span class="line">query.exec(<span class="string">"select * from user"</span>);</span><br><span class="line">//批量处理</span><br><span class="line">query.prepare();</span><br><span class="line">query.addBindValue(); //往里面添加list时要是QVariantList</span><br><span class="line">query.execBatch();</span><br><span class="line"></span><br><span class="line">//开启一个事务</span><br><span class="line">QSqlDatabase::database().transaction();</span><br><span class="line">//提交</span><br><span class="line">QSqlDatabase::database().commit();</span><br><span class="line">//回滚</span><br><span class="line">QSqlDatabase::database().rollback();</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(query.next()) //遍历</span><br><span class="line">&#123;</span><br><span class="line">	//取出当前行内容</span><br><span class="line">	qDebug &lt;&lt; query.value(0).toInt(); //取第0列，按列取</span><br><span class="line">	qDebug &lt;&lt; query.value(<span class="string">"id"</span>).toInt(); //按字段名取，更直观</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QT/">QT</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-QT笔记-02" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -890,81 +951,9 @@
 
 
   
-    <article id="post-选项排序" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/09/11/选项排序/" class="article-date">
-      <time datetime="2019-09-11T04:17:19.000Z" itemprop="datePublished">2019-09-11</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/11/选项排序/">选项排序</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>选项排序</p>
-<pre><code>选择排序也属于内部排序法，是从排序的数据中，按指定的规则选出某一元素，再依规定交换位置后达到排序目的。
-</code></pre><p> 选项排序（select sorting)也是一种简单的排序方法。它的基本思想是：第一次从arr[0]~arr[n-1]中选取最小值，与arr[0]交换，第二次从arr[1]~arr[n-1]中选取最小值，与arr[1]交换，第三次从arr[2]~arr[n-1]中选取最小值，与arr[2]交换，…，第i次从arr[i-1]~arr[n-1]中选取最小值，与arr[i-1]交换，…总共通过n-1次，得到一个按从小到大排的有序序列。<br>
-          
-      
-    </p></div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/09/11/选项排序/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
