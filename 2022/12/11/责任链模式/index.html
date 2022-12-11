@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
+  
+  
+  
+  
+  <title>责任链模式 | TimeSilence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="责任链模式 chain of responsibility 模式的应用场景在于“一个请求可能存在多个接收者，但是最后真正的接收者只有一个”，这时候请求发送者与接受者的耦合有可能出现“变化脆弱”的症状，责任链的目的就是将二者解耦，从而更好的应对变化。  应用了chain of responsibility模式后，对象的职责分配将更具有灵活性。我们可以在运行时动态添加/修改请求者的处理职责。  如果请">
+<meta name="keywords" content="DesignMode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="责任链模式">
+<meta property="og:url" content="http://yoursite.com/2022/12/11/责任链模式/index.html">
+<meta property="og:site_name" content="TimeSilence">
+<meta property="og:description" content="责任链模式 chain of responsibility 模式的应用场景在于“一个请求可能存在多个接收者，但是最后真正的接收者只有一个”，这时候请求发送者与接受者的耦合有可能出现“变化脆弱”的症状，责任链的目的就是将二者解耦，从而更好的应对变化。  应用了chain of responsibility模式后，对象的职责分配将更具有灵活性。我们可以在运行时动态添加/修改请求者的处理职责。  如果请">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2022-12-11T06:09:06.344Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="责任链模式">
+<meta name="twitter:description" content="责任链模式 chain of responsibility 模式的应用场景在于“一个请求可能存在多个接收者，但是最后真正的接收者只有一个”，这时候请求发送者与接受者的耦合有可能出现“变化脆弱”的症状，责任链的目的就是将二者解耦，从而更好的应对变化。  应用了chain of responsibility模式后，对象的职责分配将更具有灵活性。我们可以在运行时动态添加/修改请求者的处理职责。  如果请">
+  
+    <link rel="alternative" href="/atom.xml" title="TimeSilence" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/002.jpg">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/001.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">TimeSilence</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/categories/algorithm">算法学习</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/whyzxmsodiao" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://zhihu.com" title="zhihu">zhihu</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/DesignMode/" style="font-size: 10px;">DesignMode</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java-EE/" style="font-size: 10px;">Java EE</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/QT/" style="font-size: 15px;">QT</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/javaee/" style="font-size: 10px;">javaee</a> <a href="/tags/jdbc/" style="font-size: 10px;">jdbc</a> <a href="/tags/作品/" style="font-size: 10px;">作品</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/遇到的问题/" style="font-size: 15px;">遇到的问题</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="/www.baidu.com">百度一下</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">缺乏想象力的狭隘、苛刻、自以为是的命题、空洞的术语、被篡夺的理想、僵化的思想体系——对我来说，真正可怕的是这些东西。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">TimeSilence</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/001.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">TimeSilence</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/categories/algorithm">算法学习</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/whyzxmsodiao" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://zhihu.com" title="zhihu">zhihu</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-责任链模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/12/11/责任链模式/" class="article-date">
+      <time datetime="2022-12-11T05:51:12.788Z" itemprop="datePublished">2022-12-11</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      责任链模式
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DesignMode/">DesignMode</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="责任链模式"><a href="#责任链模式" class="headerlink" title="责任链模式"></a>责任链模式</h2><p> chain of responsibility 模式的应用场景在于“一个请求可能存在多个接收者，但是最后真正的接收者只有一个”，这时候请求发送者与接受者的耦合有可能出现“变化脆弱”的症状，责任链的目的就是将二者解耦，从而更好的应对变化。</p>
+<p> 应用了chain of responsibility模式后，对象的职责分配将更具有灵活性。我们可以在运行时动态添加/修改请求者的处理职责。</p>
+<p> 如果请求传递到职责链的末尾仍然得不到不理，应该有一个合理的缺省机制。这也是每一个接受对象的责任，而不是发出请求的对象的责任。</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 责任链模式</span><br><span class="line">class Hander &#123;</span><br><span class="line">protected:</span><br><span class="line">    Hander* nextHander_ = nullptr;</span><br><span class="line">public:</span><br><span class="line">    void setNextHander(Hander* nextHander)</span><br><span class="line">    &#123;</span><br><span class="line">        nextHander_ = nextHander;</span><br><span class="line">    &#125;</span><br><span class="line">    virtual void process(int dayNum) = 0;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Leader :public Hander &#123;</span><br><span class="line">public:</span><br><span class="line">    void process(int dayNum)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (dayNum &gt; 0 &amp;&amp; dayNum &lt; 10) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">"Leader process"</span> &lt;&lt; endl;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (nextHander_ != nullptr) &#123;</span><br><span class="line">                nextHander_-&gt;process(dayNum);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Boss :public Hander &#123;</span><br><span class="line">public:</span><br><span class="line">    void process(int dayNum)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (dayNum &gt;= 10) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">"Boss process"</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (nextHander_ != nullptr) &#123;</span><br><span class="line">                nextHander_-&gt;process(dayNum);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    // 场景：员工需要请假，小于10天假期领导便可以批准，但大于十天的假期需要老板批准</span><br><span class="line">    Hander *leader = new Leader;</span><br><span class="line">    Hander *boss = new Boss;</span><br><span class="line">    leader-&gt;setNextHander(boss);</span><br><span class="line">    // 此时只需要将请假的天数给到leader,leader如果能处理，便自己处理，自己处理不了便交给下一个处理者Boss处理，直到有人处理。</span><br><span class="line">    leader-&gt;process(8);</span><br><span class="line">    leader-&gt;process(13);</span><br><span class="line">    // 责任链模式优缺点：</span><br><span class="line">    // 优点：将请求者和处理者分开，请求者不需要知道谁去处理，处理者也不需要知道请求者的全貌，提高系统灵活新，如果新增一个处理者到整个链条中的代价是很小的</span><br><span class="line">    // 缺点：会降低系统性能，比如部分请求直接找boss便可解决，但在此模式中，前面可能会存在其他处理者专教，不易于调试，类似递归。</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2022/12/11/责任链模式/">责任链模式</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 TimeSilence 的个人博客">TimeSilence</a></p>
+        <p><span>发布时间:</span>2022年12月11日 - 13时51分</p>
+        <p><span>最后更新:</span>2022年12月11日 - 14时09分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2022/12/11/责任链模式/" title="责任链模式">http://yoursite.com/2022/12/11/责任链模式/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2022/12/11/责任链模式/　　作者: TimeSilence" title></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/02/09/Docker/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#责任链模式"><span class="toc-number">1.</span> <span class="toc-text">责任链模式</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2022/02/09/Docker/" title="下一篇: Docker">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/11/责任链模式/">责任链模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/02/09/Docker/">Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/QT之数据库/">QT之数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/31/QT笔记-02/">QT笔记_02</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/31/QT学习笔记/">QT学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/04/STL之string/">STL之string</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/22/基数排序/">基数排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/18/GET和POST区别/">GET和POST区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/18/归并排序/">归并排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/17/快速排序/">快速排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/12/希尔排序/">希尔排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/插入排序/">插入排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/选项排序/">选项排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/Java中try-catch-finally语句中含有return语句的执行情况/">Java中try catch finally语句中含有return语句的执行情况</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/冒泡排序/">冒泡排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/08/八皇后问题（回溯法）/">八皇后问题（回溯法）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/07/迷宫问题（递归）/">迷宫问题（递归）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/前缀，中缀，后缀表达式/">前缀，中缀，后缀表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/05/栈/">栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/Josephu/">Josephu</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/01/双向链表/">双向链表</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/31/单链表典型题1/">单链表典型题1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/30/链表操作/">链表操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/30/数组实现队列2/">数组实现队列2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/27/数组实现队列1/">数组实现队列1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/26/稀疏数组-sparsearray/">稀疏数组(sparsearray)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/myeclipse-自动补充返回类型和变量方法（快捷键）/">myeclipse 自动补充返回类型和变量方法（快捷键）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/安装MySQL后，开机出现-缺少根元素-的错误提示解决办法/">安装MySQL后，开机出现 缺少根元素 的错误提示解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/JDBC基础/">JDBC基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/JAVAEE三层架构/">JAVAEE三层架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/09/cmd基础操作/">cmd基础操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/随笔/">我自风情万种，与世无争</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/03/Java-EE-01/">Java EE 01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/单链表基本操作/">单链表基本操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/顺序表基本操作/">顺序表基本操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/二叉树相关基础/">二叉树相关基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/JAVA之List/">时间复杂度计算</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/琳/">琳</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/JAVA之多态/">JAVA之多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/JAVA之构造器/">JAVA之构造器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/05/密码学概述/">密码学概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/post城南花开/">梦醒时分</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/hello-world/">Hello World</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2022 TimeSilence
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit">极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 2;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -188,7 +188,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java-EE/" style="font-size: 10px;">Java EE</a> <a href="/tags/QT/" style="font-size: 15px;">QT</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/javaee/" style="font-size: 10px;">javaee</a> <a href="/tags/jdbc/" style="font-size: 10px;">jdbc</a> <a href="/tags/作品/" style="font-size: 10px;">作品</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/遇到的问题/" style="font-size: 15px;">遇到的问题</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
+                        <a href="/tags/DesignMode/" style="font-size: 10px;">DesignMode</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java-EE/" style="font-size: 10px;">Java EE</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/QT/" style="font-size: 15px;">QT</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/javaee/" style="font-size: 10px;">javaee</a> <a href="/tags/jdbc/" style="font-size: 10px;">jdbc</a> <a href="/tags/作品/" style="font-size: 10px;">作品</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/遇到的问题/" style="font-size: 15px;">遇到的问题</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
                     </div>
                 </section>
                 
@@ -256,6 +256,140 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-责任链模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/12/11/责任链模式/" class="article-date">
+      <time datetime="2022-12-11T05:51:12.788Z" itemprop="datePublished">2022-12-11</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/12/11/责任链模式/">责任链模式</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="责任链模式"><a href="#责任链模式" class="headerlink" title="责任链模式"></a>责任链模式</h2><p> chain of responsibility 模式的应用场景在于“一个请求可能存在多个接收者，但是最后真正的接收者只有一个”，这时候请求发送者与接受者的耦合有可能出现“变化脆弱”的症状，责任链的目的就是将二者解耦，从而更好的应对变化。</p>
+<p> 应用了chain of responsibility模式后，对象的职责分配将更具有灵活性。我们可以在运行时动态添加/修改请求者的处理职责。</p>
+<p> 如果请求传递到职责链的末尾仍然得不到不理，应该有一个合理的缺省机制。这也是每一个接受对象的责任，而不是发出请求的对象的责任。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DesignMode/">DesignMode</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2022/12/11/责任链模式/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Docker" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/02/09/Docker/" class="article-date">
+      <time datetime="2022-02-09T12:10:11.000Z" itemprop="datePublished">2022-02-09</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/09/Docker/">Docker</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Docker概念"><a href="#Docker概念" class="headerlink" title="Docker概念"></a>Docker概念</h2><p>Docker是一个开源的应用容器引擎，基于go语言实现。</p>
+<p>Docker可以让开发者打包他们的应用以及依赖包到一个轻量级。可移植的容器中，然后发布到任何流行的Linux机器上。</p>
+<p>容器是完全使用沙箱机制，互相隔离。</p>
+<p>容器性能开销极低。</p>
+<p><strong>总结：docker是一种容器技术，解决软件跨环境迁移问题。</strong></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-QT之数据库" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -800,157 +934,6 @@
 
 
   
-    <article id="post-希尔排序" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/09/12/希尔排序/" class="article-date">
-      <time datetime="2019-09-12T03:38:53.000Z" itemprop="datePublished">2019-09-12</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/12/希尔排序/">希尔排序</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>插入排序存在的问题。<br>数组arr={2,3,4,5,6,1}时需要插入的数1（最小），这样的过程是：</p>
-<pre><code>{2，3，4，5，6，6}
-{2，3，4，5，5，6}
-{2，3，4，4，5，6}
-{2，3，3，4，5，6}
-{2，2，3，4，5，6}
-{1，2，3，4，5，6}
-</code></pre><p>发现当需要插入的数是比较小的数时，后移的次数明显增多，对效率有影响。</p>
-<p>希尔排序</p>
-<p>希尔排序是希尔（Donald Shell）于1959年提出的一种排序算法。希尔排序也是一种插入排序，他是简单插入排序改进之后的一个更高效的版本，也称为缩小增量排序。<br>
-          
-      
-    </p></div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/09/12/希尔排序/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-插入排序" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/09/11/插入排序/" class="article-date">
-      <time datetime="2019-09-11T08:26:24.000Z" itemprop="datePublished">2019-09-11</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/11/插入排序/">插入排序</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>插入排序</p>
-<pre><code>插入排序属于内部排序算法。是对于欲排序的元素以插入的方式寻找该元素的适当位置，以达到排序的目的。
-</code></pre><p>插入排序（Insertion Sorting)的基本思想：把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含n-1个元素，排序过程中每次从无序表中取出一个元素，把它的排序码依次和有序表元素进行比较，将它插入到有序表中的适当位置，使之成为新的有序表。<br>
-          
-      
-    </p></div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/09/11/插入排序/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -962,7 +945,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2021 TimeSilence
+                &copy; 2022 TimeSilence
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
